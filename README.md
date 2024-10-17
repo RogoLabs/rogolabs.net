@@ -1,3 +1,3 @@
 # RoGolabs.net
 
-Full rogolabs.net page coming soon. 
+Full RoGoLabs.net page coming soon. 
