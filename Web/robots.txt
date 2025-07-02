@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://rogolabs.net/sitemap.xml
+
+# Performance optimization
+Crawl-delay: 1
+
+# Block unnecessary files
+Disallow: /sw.js
+Disallow: /manifest.json
+Disallow: /browserconfig.xml

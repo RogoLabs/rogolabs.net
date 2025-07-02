@@ -23,8 +23,8 @@
     <meta property="twitter:creator" content="@jgamblin">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://rogolabs.net/">
@@ -32,8 +32,30 @@
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <!-- Modern CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Modern meta tags -->
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="RogoLabs">
+    <meta name="msapplication-TileColor" content="#2563eb">
+    <meta name="msapplication-config" content="browserconfig.xml">
+    
+    <!-- Resource hints -->
+    <link rel="dns-prefetch" href="//github.com">
+    <link rel="dns-prefetch" href="//twitter.com">
+    <link rel="dns-prefetch" href="//linkedin.com">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -66,6 +88,39 @@
             --dark: #0f172a;
             --gray: #64748b;
             --light-gray: #e2e8f0;
+            
+            /* Dark mode variables */
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --hero-gradient: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #475569;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.2), 0 2px 4px -2px rgb(0 0 0 / 0.2);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.2);
+            --hero-gradient: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            
+            /* Update legacy color variables for dark mode */
+            --dark: #f1f5f9;
+            --secondary: #f1f5f9;
+            --gray: #94a3b8;
+            --light-gray: #475569;
         }
 
         * {
@@ -77,8 +132,8 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: var(--secondary);
-            background-color: #ffffff;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
             -webkit-font-smoothing: antialiased;
         }
 
@@ -90,12 +145,13 @@
 
         /* Header */
         header {
-            background-color: white;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            background-color: var(--bg-primary);
+            box-shadow: var(--shadow-sm);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 100;
+            border-bottom: 1px solid var(--border-color);
         }
 
         nav {
@@ -108,11 +164,10 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--text-primary);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
         }
 
         .logo-icon {
@@ -127,13 +182,21 @@
             color: var(--primary);
         }
 
+        .logo-rogo {
+            color: var(--text-primary) !important;
+        }
+
+        .logo-labs {
+            color: #60a5fa !important;
+        }
+
         .nav-links {
             display: flex;
             gap: 2rem;
         }
 
         .nav-links a {
-            color: var(--secondary);
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s;
@@ -149,13 +212,13 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--dark);
+            color: var(--text-primary);
         }
 
         /* Hero Section */
         .hero {
             padding: 10rem 0 6rem;
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            background: var(--hero-gradient);
             text-align: center;
         }
 
@@ -164,12 +227,12 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
             line-height: 1.1;
-            color: var(--dark);
+            color: var(--text-primary);
         }
 
         .hero p {
             font-size: 1.3rem;
-            color: var(--gray);
+            color: var(--text-secondary);
             max-width: 900px;
             margin: 0 auto 2.5rem;
             line-height: 1.6;
@@ -188,6 +251,23 @@
             border: none;
             cursor: pointer;
             font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn:hover {
@@ -219,13 +299,13 @@
         .section-title h2 {
             font-size: 2.25rem;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--text-primary);
             margin-bottom: 1rem;
         }
 
         .section-title p {
             font-size: 1.125rem;
-            color: var(--gray);
+            color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto;
             line-height: 1.6;
@@ -239,12 +319,12 @@
         .about-text h3 {
             font-size: 1.5rem;
             margin-bottom: 1.5rem;
-            color: var(--dark);
+            color: var(--text-primary);
         }
 
         .about-text p {
             margin-bottom: 1.5rem;
-            color: var(--secondary);
+            color: var(--text-secondary);
             font-size: 1.05rem;
             line-height: 1.7;
         }
@@ -260,7 +340,7 @@
         }
 
         .about-text strong {
-            color: var(--dark);
+            color: var(--text-primary);
             font-weight: 600;
         }
 
@@ -279,7 +359,7 @@
 
         /* Projects Section */
         .projects {
-            background-color: #f8fafc;
+            background-color: var(--bg-secondary);
         }
 
         .projects-grid {
@@ -290,47 +370,39 @@
         }
 
         .project-card {
-            background: white;
+            background: var(--bg-primary);
             border-radius: 0.5rem;
             overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-sm);
             transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border-color);
         }
 
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        .project-image {
-            height: 200px;
-            background-color: #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 3rem;
+            box-shadow: var(--shadow-lg);
         }
 
         .project-content {
-            padding: 1.5rem;
+            padding: 2rem;
         }
 
         .project-content h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: var(--dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            font-weight: 700;
         }
 
         .project-content p {
-            color: var(--gray);
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.6;
             font-size: 0.95rem;
         }
 
         .project-content p strong {
-            color: var(--dark);
+            color: var(--text-primary);
             font-weight: 600;
         }
 
@@ -342,7 +414,7 @@
 
         /* Speaking Section */
         .speaking {
-            background-color: white;
+            background-color: var(--bg-secondary);
         }
 
         .speaking-grid {
@@ -353,11 +425,12 @@
         }
 
         .talk-card {
-            background: white;
+            background: var(--bg-primary);
             border-radius: 0.5rem;
             padding: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-sm);
             transition: transform 0.3s;
+            border: 1px solid var(--border-color);
         }
 
         .talk-card:hover {
@@ -367,7 +440,7 @@
         .talk-card h3 {
             font-size: 1.25rem;
             margin-bottom: 0.25rem;
-            color: var(--dark);
+            color: var(--text-primary);
             line-height: 1.3;
         }
         
@@ -383,7 +456,7 @@
             display: flex;
             flex-direction: row;
             gap: 0.75rem;
-            color: var(--gray);
+            color: var(--text-secondary);
             font-size: 0.875rem;
             margin-bottom: 1rem;
             flex-wrap: wrap;
@@ -401,14 +474,14 @@
 
         /* Contact Section */
         .contact {
-            background-color: #f8fafc;
+            background-color: var(--bg-secondary);
             text-align: center;
         }
 
         .contact p {
             max-width: 600px;
             margin: 0 auto 2.5rem;
-            color: var(--gray);
+            color: var(--text-secondary);
         }
 
         .social-links {
@@ -425,12 +498,13 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            background-color: white;
+            background-color: var(--bg-primary);
             color: var(--primary);
             font-size: 1.25rem;
             transition: all 0.3s;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-sm);
             text-decoration: none;
+            border: 1px solid var(--border-color);
         }
 
         .social-link:hover {
@@ -441,8 +515,8 @@
 
         /* Footer */
         footer {
-            background-color: var(--dark);
-            color: white;
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
             padding: 3rem 0;
             text-align: center;
         }
@@ -460,19 +534,93 @@
         }
 
         .footer-links a {
-            color: #94a3b8;
+            color: var(--text-secondary);
             text-decoration: none;
             transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--text-primary);
         }
 
         .copyright {
-            color: #94a3b8;
+            color: var(--text-secondary);
             font-size: 0.875rem;
             margin-top: 2rem;
+        }
+
+
+
+        /* Modern animations and micro-interactions */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Enhanced button interactions */
+        .btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Loading spinner */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 8px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Responsive Styles */
@@ -500,10 +648,12 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background-color: white;
+                background-color: var(--bg-primary);
                 flex-direction: column;
                 padding: 1.5rem;
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                box-shadow: var(--shadow-md);
+                border: 1px solid var(--border-color);
+                border-top: none;
             }
 
             .nav-links.active {
@@ -548,7 +698,7 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">Rogo<span>Labs</span></a>
+                <a href="#" class="logo"><span class="logo-rogo">Rogo</span><span class="logo-labs">Labs</span></a>
                 <div class="nav-links" id="navLinks">
                     <a href="#about">About</a>
                     <a href="#projects">Projects</a>
@@ -556,24 +706,31 @@
                     <a href="https://jerrygamblin.com" target="_blank" rel="noopener noreferrer">Blog</a>
                     <a href="#contact">Contact</a>
                 </div>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
-                    <i class="fas fa-bars" aria-hidden="true"></i>
-                </button>
+                <div style="display: flex; align-items: center;">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="background: none; border: none; color: var(--text-primary); font-size: 1.25rem; cursor: pointer; padding: 0.5rem; margin-right: 0.5rem; border-radius: 0.25rem; transition: background-color 0.2s;">
+                        <i class="fas fa-moon" id="themeIcon"></i>
+                    </button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false" style="display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-primary); padding: 0.5rem; border-radius: 0.25rem;">
+                        <i class="fas fa-bars" aria-hidden="true"></i>
+                    </button>
+                </div>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Vulnerability Intelligence Tools</h1>
-            <p>Open source tools that transform CVE chaos into actionable insights</p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#projects" class="btn">Start Using Our Tools</a>
-                <a href="#contact" class="btn btn-outline">Get Expert Insights</a>
+    <main>
+        <section class="hero" role="banner">
+            <div class="container">
+                <h1>Vulnerability Intelligence Tools</h1>
+                <p>Open source tools that transform CVE chaos into actionable insights</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#projects" class="btn">Start Using Our Tools</a>
+                    <a href="#contact" class="btn btn-outline">Get Expert Insights</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -604,9 +761,6 @@
             <div class="projects-grid">
                 <!-- CVE.ICU -->
                 <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-bug"></i>
-                    </div>
                     <div class="project-content">
                         <h3>CVE.ICU</h3>
                         <p><strong>Make sense of vulnerability chaos with visual intelligence.</strong> Dive deep into CVE patterns and trends through interactive charts and graphs. Updated every 4 hours from the National Vulnerability Database to give you fresh insights into the ever-changing cybersecurity landscape.</p>
@@ -619,9 +773,6 @@
 
                 <!-- PatchThis.app -->
                 <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
                     <div class="project-content">
                         <h3>PatchThis.app</h3>
                         <p><strong>End patch management chaos.</strong> Automatically prioritize critical patches based on actual risk to your systems, not just CVSS scores. Spend less time patching, more time protecting.</p>
@@ -634,9 +785,6 @@
 
                 <!-- CNAScoreCard -->
                 <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
                     <div class="project-content">
                         <h3>CNA Scorecard</h3>
                         <p><strong>Know which CVE sources you can trust.</strong> Data-driven quality ratings for every CNA help you focus on reliable vulnerability intelligence and avoid noise from inconsistent reporters.</p>
@@ -686,7 +834,7 @@
                 </div>
 
                 <!-- Placeholder for Future Talk -->
-                <div class="talk-card" style="background-color: #f8fafc;">
+                <div class="talk-card" style="background-color: var(--bg-secondary);">
                     <h3>Want Me to Speak at Your Event?</h3>
                     <div class="talk-meta">
                         <span><i class="far fa-calendar"></i> Your Date</span>
@@ -732,7 +880,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <a href="#" class="logo" style="color: white; margin-bottom: 1.5rem; display: inline-block;">Rogo<span style="color: #60a5fa;">Labs</span></a>
+                <a href="#" class="logo" style="margin-bottom: 1.5rem; display: inline-block;"><span class="logo-rogo">Rogo</span><span class="logo-labs">Labs</span></a>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="#projects">Projects</a>
@@ -744,59 +892,6 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            const isExpanded = navLinks.classList.contains('active');
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            });
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Adjust for fixed header
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Add loading states to external links
-        document.querySelectorAll('a[href^="http"]').forEach(link => {
-            link.addEventListener('click', function() {
-                this.style.opacity = '0.7';
-                setTimeout(() => {
-                    this.style.opacity = '1';
-                }, 1000);
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
-</html> 
+</html>
