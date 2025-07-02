@@ -24,6 +24,9 @@ jobs:
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        with:
+          # Explicitly set the publish directory to Web
+          publish_dir: './Web'
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
