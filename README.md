@@ -18,7 +18,7 @@ A professional portfolio and project showcase for Jerry Gamblin, featuring cyber
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/jgamblin/rogolabs.net.git
+   git clone https://github.com/RogoLabs/rogolabs.net.git
    cd rogolabs.net
    ```
 
@@ -66,7 +66,7 @@ This site is automatically deployed to GitHub Pages using GitHub Actions. The wo
    rogolabs.net      A       185.199.109.153
    rogolabs.net      A       185.199.110.153
    rogolabs.net      A       185.199.111.153
-   www.rogolabs.net  CNAME   jgamblin.github.io
+   www.rogolabs.net  CNAME   rogolabs.github.io
    ```
 
 2. In your GitHub repository, go to Settings > Pages and add your custom domain.
