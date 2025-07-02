@@ -2,38 +2,34 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]  # Change this to your default branch if different
+    branches: [ main ]
   pull_request:
-    branches: [ main ]  # Change this to your default branch if different
-  workflow_dispatch:  # Allows manual trigger
+    branches: [ main ]
+  workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+env:
+  PUBLISH_DIR: Web
+
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-      
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
-        with:
-          # Explicitly set the publish directory to Web
-          publish_dir: './Web'
-      
-      - name: Upload artifact
+
+      - name: Upload Web directory as artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Serve files from the root of the repository
-          path: './Web'  # Note: Capital 'W' to match the directory name
-      
+          path: ${{ env.PUBLISH_DIR }}
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
