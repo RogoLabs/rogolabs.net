@@ -412,6 +412,15 @@
             gap: 0.75rem;
         }
 
+        /* Project card benefit points */
+        .project-benefits {
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.4;
+        }
+        
         /* Speaking Section */
         .speaking {
             background-color: var(--bg-secondary);
@@ -722,11 +731,11 @@
     <main>
         <section class="hero" role="banner">
             <div class="container">
-                <h1>Vulnerability Intelligence Tools</h1>
-                <p>Open source tools that transform CVE chaos into actionable insights</p>
+                <h1>Vulnerability Insights That Matter</h1>
+                <p>Free, open-source vulnerability intelligence tools that cut through the noise and help security teams focus on what actually matters</p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="#projects" class="btn">Start Using Our Tools</a>
-                    <a href="#contact" class="btn btn-outline">Get Expert Insights</a>
+                    <a href="#projects" class="btn">Stop CVE Chaos Now</a>
+                    <a href="#contact" class="btn btn-outline">Get Strategic Insights</a>
                 </div>
             </div>
         </section>
@@ -736,16 +745,22 @@
     <section id="about" class="about">
         <div class="container">
             <div class="section-title">
-                <h2>About Jerry Gamblin</h2>
-                <p>Creating practical vulnerability intelligence solutions for security professionals</p>
+                <h2>About RogoLabs</h2>
+                <p>Where vulnerability chaos meets clarity through open-source intelligence</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Building Open Source Security Intelligence</h3>
-                    <p>I've spent my career obsessed with one question: <em>How do we fix what matters?</em> This drove me to create RogoLabs—named after the Latin word "rogo," meaning "to perceive"—where I develop free, open source tools that bring clarity to the chaos of vulnerability management.</p>
-                    <p>While others get lost in endless CVE feeds and alert fatigue, I build practical tools that cut through the noise. My open source projects transform overwhelming vulnerability data into clear, actionable intelligence that security teams can actually use. No vendor lock-in, no hidden costs—just effective tools shared freely with the community.</p>
-                    <p>I believe the best security happens when we collaborate openly. Every vulnerability intelligence tool I create is released as open source because when security knowledge is shared freely, we all become stronger. The community's feedback and contributions make these tools better for everyone.</p>
-                    <p><strong>The mission is simple:</strong> Create open source vulnerability intelligence tools that help security professionals perceive what matters, prioritize what's critical, and protect what counts.</p>
+                    <h3>Our Mission: Making Security Practical</h3>
+                    <p>RogoLabs transforms overwhelming vulnerability data into clear, actionable intelligence that security teams can actually use. We believe the best security happens when practical tools are shared freely with the community—no vendor lock-in, no hidden costs, just effective solutions.</p>
+                    
+                    <h3>The Story Behind RogoLabs</h3>
+                    <p>I've spent my career obsessed with one question: <em>"How do we fix what matters?"</em> This drove me to create RogoLabs—named after the Latin word "rogo," meaning "to perceive"—where we develop free, open-source tools that bring clarity to vulnerability management chaos.</p>
+                    
+                    <p>While others get lost in endless CVE feeds and alert fatigue, we build practical tools that cut through the noise. Every project we create is designed to help security professionals <strong>perceive what matters, prioritize what's critical, and protect what counts.</strong></p>
+                    
+                    <p>Our open-source approach isn't just philosophy—it's strategy. When security knowledge is shared freely, we all become stronger. The community's feedback and contributions make these tools better for everyone, creating a virtuous cycle of improvement and innovation.</p>
+                    
+                    <p class="signature" style="font-style: italic; color: var(--primary); margin-top: 2rem;">— Jerry Gamblin, Founder</p>
                 </div>
             </div>
         </div>
@@ -755,18 +770,23 @@
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-title">
-                <h2>Featured Projects</h2>
-                <p>Open source security tools developed to address real-world challenges</p>
+                <h2>Open-Source Security Tools</h2>
+                <p>Battle-tested solutions addressing your biggest vulnerability management challenges</p>
             </div>
             <div class="projects-grid">
                 <!-- CVE.ICU -->
                 <div class="project-card">
                     <div class="project-content">
                         <h3>CVE.ICU</h3>
-                        <p><strong>Make sense of vulnerability chaos with visual intelligence.</strong> Dive deep into CVE patterns and trends through interactive charts and graphs. Updated every 4 hours from the National Vulnerability Database to give you fresh insights into the ever-changing cybersecurity landscape.</p>
+                        <p><strong>Tired of drowning in CVE data?</strong> Transform vulnerability chaos into visual intelligence with interactive charts that reveal the patterns that matter. Our real-time dashboard, updated every 4 hours from the NVD, cuts through the noise to show you what's actually happening in the threat landscape.</p>
+                        <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
+                            <div>✓ Spot emerging trends instantly</div>
+                            <div>✓ Filter out the noise</div>
+                            <div>✓ Make data-driven decisions</div>
+                        </div>
                         <div class="project-links">
-                            <a href="https://cve.icu" target="_blank" class="btn" style="text-align: center;">Explore CVE Data</a>
-                            <a href="https://github.com/jgamblin/cve.icu" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>GitHub Repository</a>
+                            <a href="https://cve.icu" target="_blank" class="btn" style="text-align: center;">See CVE Patterns Now</a>
+                            <a href="https://github.com/jgamblin/cve.icu" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
                         </div>
                     </div>
                 </div>
@@ -775,10 +795,15 @@
                 <div class="project-card">
                     <div class="project-content">
                         <h3>PatchThis.app</h3>
-                        <p><strong>End patch management chaos.</strong> Automatically prioritize critical patches based on actual risk to your systems, not just CVSS scores. Spend less time patching, more time protecting.</p>
+                        <p><strong>Stop playing patch roulette.</strong> Automatically prioritize critical patches based on actual risk to your systems, not just CVSS scores. Our proven approach dramatically reduces patch workload while maintaining complete security coverage.</p>
+                        <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
+                            <div>✓ Risk-based prioritization</div>
+                            <div>✓ Reduced patching overhead</div>
+                            <div>✓ Focus on real threats</div>
+                        </div>
                         <div class="project-links">
-                            <a href="https://patchthis.app" target="_blank" class="btn" style="text-align: center;">Get Started</a>
-                            <a href="https://github.com/jgamblin/patchthisapp" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>GitHub Repository</a>
+                            <a href="https://patchthis.app" target="_blank" class="btn" style="text-align: center;">End Patch Chaos Now</a>
+                            <a href="https://github.com/jgamblin/patchthisapp" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
                         </div>
                     </div>
                 </div>
@@ -787,10 +812,15 @@
                 <div class="project-card">
                     <div class="project-content">
                         <h3>CNA Scorecard</h3>
-                        <p><strong>Know which CVE sources you can trust.</strong> Data-driven quality ratings for every CNA help you focus on reliable vulnerability intelligence and avoid noise from inconsistent reporters.</p>
+                        <p><strong>Not all CVE sources are created equal.</strong> Get data-driven quality ratings for every CVE Numbering Authority so you can focus on reliable vulnerability intelligence and stop wasting time on inconsistent, low-quality reports.</p>
+                        <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
+                            <div>✓ Trust verified sources</div>
+                            <div>✓ Avoid poor-quality data</div>
+                            <div>✓ Streamline intelligence workflows</div>
+                        </div>
                         <div class="project-links">
-                            <a href="https://cnascorecard.org" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center;">View Ratings</a>
-                            <a href="https://github.com/jgamblin/CNAScoreCard" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>GitHub Repository</a>
+                            <a href="https://cnascorecard.org" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center;">Check CNA Quality Now</a>
+                            <a href="https://github.com/jgamblin/CNAScoreCard" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
                         </div>
                     </div>
                 </div>
@@ -802,8 +832,8 @@
     <section id="speaking" class="speaking">
         <div class="container">
             <div class="section-title">
-                <h2>Speaking & Thought Leadership</h2>
-                <p>Practical vulnerability intelligence insights at leading security conferences</p>
+                <h2>Proven Expertise & Thought Leadership</h2>
+                <p>Real-world vulnerability intelligence insights from the front lines of security</p>
             </div>
             <div class="speaking-grid">
                 <!-- VulnCon 2025 -->
@@ -814,7 +844,7 @@
                         <span><i class="far fa-calendar"></i> March 2025</span>
                         <span><i class="fas fa-map-marker-alt"></i> VulnCon Virtual (FIRST.org)</span>
                     </div>
-                    <p>Exploring the critical need for improved quality and standardization in vulnerability reporting to enhance overall security posture and response effectiveness. This keynote presentation will showcase real-world data on CNA performance gaps and actionable solutions.</p>
+                    <p>Keynote presentation showcasing real-world data on CNA performance gaps and actionable solutions to improve vulnerability reporting quality. Learn how poor-quality CVE data costs security teams time and how we can fix it.</p>
                     <div style="margin-top: 1rem;">
                         <a href="https://www.first.org/conference/vulncon2025/program" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">See Full Program</a>
                     </div>
@@ -827,22 +857,22 @@
                         <span><i class="far fa-calendar"></i> August 2024</span>
                         <span><i class="fas fa-map-marker-alt"></i> AppSec Village at DEFCON 32, Las Vegas</span>
                     </div>
-                    <p>A deep dive into how the Exploit Prediction Scoring System (EPSS) can be effectively leveraged to prioritize and improve vulnerability management processes. I presented real-world case studies showing a 70% reduction in patch workload while maintaining security coverage.</p>
+                    <p>Real-world case studies showing how the Exploit Prediction Scoring System (EPSS) can deliver a <strong>70% reduction in patch workload</strong> while maintaining security coverage. Practical implementation strategies that work.</p>
                     <div style="margin-top: 1rem;">
-                        <a href="https://www.youtube.com/watch?v=Lgv11FoNa3w" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Watch Session</a>
+                        <a href="https://www.youtube.com/watch?v=Lgv11FoNa3w" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Watch Full Session</a>
                     </div>
                 </div>
 
                 <!-- Placeholder for Future Talk -->
                 <div class="talk-card" style="background-color: var(--bg-secondary);">
-                    <h3>Want Me to Speak at Your Event?</h3>
+                    <h3>Ready to Level Up Your Event?</h3>
                     <div class="talk-meta">
-                        <span><i class="far fa-calendar"></i> Your Date</span>
+                        <span><i class="far fa-calendar"></i> Your Conference</span>
                         <span><i class="fas fa-map-marker-alt"></i> Your Venue</span>
                     </div>
-                    <p>I love sharing practical vulnerability intelligence insights with security teams and conference audiences. Let's discuss how I can add value to your event.</p>
+                    <p>Looking for practical vulnerability intelligence insights that your audience can actually implement? Let's discuss how proven strategies and real data can add serious value to your event.</p>
                     <div style="margin-top: 1rem;">
-                        <a href="#contact" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Book a Speaking Slot</a>
+                        <a href="#contact" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Book Jerry as Speaker</a>
                     </div>
                 </div>
             </div>
@@ -853,11 +883,11 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Get In Touch</h2>
-                <p>Interested in collaborating or have questions? Feel free to reach out.</p>
+                <h2>Let's Talk Security Intelligence</h2>
+                <p>Ready to transform your vulnerability management approach? Let's connect.</p>
             </div>
-            <p>I'm always open to discussing new projects, speaking opportunities, or potential collaborations.</p>
-            <a href="mailto:contact@rogolabs.net" class="btn" style="margin-top: 1.5rem;">contact@rogolabs.net</a>
+            <p>Whether you're interested in collaborating on open-source projects, booking speaking engagements, or discussing how our tools can help your team cut through vulnerability chaos, I'd love to hear from you.</p>
+            <a href="mailto:contact@rogolabs.net" class="btn" style="margin-top: 1.5rem;">Start the Conversation</a>
             
             <div class="social-links">
                 <a href="https://github.com/jgamblin" target="_blank" class="social-link" aria-label="GitHub">
