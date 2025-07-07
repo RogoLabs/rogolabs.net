@@ -362,11 +362,154 @@
             background-color: var(--bg-secondary);
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .projects-carousel {
+            position: relative;
             margin-top: 3rem;
+            overflow: visible; /* Changed from hidden to visible */
+        }
+
+        .projects-track-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .projects-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 2rem;
+        }
+
+        .projects-grid {
+            display: none; /* Always use carousel now */
+        }
+
+        /* Carousel navigation */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: all 0.3s;
+            box-shadow: var(--shadow-lg);
+            pointer-events: auto;
+        }
+
+        .carousel-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .carousel-btn:disabled:hover {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border-color: var(--border-color);
+            transform: translateY(-50%) scale(1);
+        }
+
+        .carousel-btn.prev {
+            left: -70px;
+        }
+
+        .carousel-btn.next {
+            right: -70px;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .carousel-dot.active {
+            background: var(--primary);
+        }
+
+        /* Card sizing for 3-card view */
+        .project-card {
+            flex: 0 0 calc(33.333% - 1.33rem); /* 3 cards with gap */
+            min-width: 280px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .project-card {
+                flex: 0 0 calc(50% - 1rem); /* 2 cards on medium screens */
+                min-width: 280px;
+            }
+            
+            .carousel-btn.prev {
+                left: -60px;
+            }
+
+            .carousel-btn.next {
+                right: -60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-card {
+                flex: 0 0 calc(100% - 2rem); /* 1 card on small screens */
+                min-width: 260px;
+            }
+            
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .carousel-btn.prev {
+                left: -50px;
+            }
+
+            .carousel-btn.next {
+                right: -50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-btn.prev {
+                left: -45px;
+            }
+
+            .carousel-btn.next {
+                right: -45px;
+            }
         }
 
         .project-card {
@@ -426,11 +569,154 @@
             background-color: var(--bg-secondary);
         }
 
-        .speaking-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        .speaking-carousel {
+            position: relative;
             margin-top: 3rem;
+            overflow: visible;
+        }
+
+        .speaking-track-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .speaking-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            gap: 2rem;
+        }
+
+        .speaking-grid {
+            display: none; /* Always use carousel now */
+        }
+
+        /* Speaking carousel navigation - reuse project carousel styles */
+        .speaking-carousel .carousel-nav {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .speaking-carousel .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: all 0.3s;
+            box-shadow: var(--shadow-lg);
+            pointer-events: auto;
+        }
+
+        .speaking-carousel .carousel-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .speaking-carousel .carousel-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .speaking-carousel .carousel-btn:disabled:hover {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            border-color: var(--border-color);
+            transform: translateY(-50%) scale(1);
+        }
+
+        .speaking-carousel .carousel-btn.prev {
+            left: -70px;
+        }
+
+        .speaking-carousel .carousel-btn.next {
+            right: -70px;
+        }
+
+        .speaking-carousel .carousel-dots {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .speaking-carousel .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border-color);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .speaking-carousel .carousel-dot.active {
+            background: var(--primary);
+        }
+
+        /* Card sizing for speaking section */
+        .talk-card {
+            flex: 0 0 calc(33.333% - 1.33rem); /* 3 cards with gap */
+            min-width: 280px;
+        }
+
+        /* Responsive adjustments for speaking */
+        @media (max-width: 1024px) {
+            .talk-card {
+                flex: 0 0 calc(50% - 1rem); /* 2 cards on medium screens */
+                min-width: 280px;
+            }
+            
+            .speaking-carousel .carousel-btn.prev {
+                left: -60px;
+            }
+
+            .speaking-carousel .carousel-btn.next {
+                right: -60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .talk-card {
+                flex: 0 0 calc(100% - 2rem); /* 1 card on small screens */
+                min-width: 260px;
+            }
+            
+            .speaking-carousel .carousel-btn {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .speaking-carousel .carousel-btn.prev {
+                left: -50px;
+            }
+
+            .speaking-carousel .carousel-btn.next {
+                right: -50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .speaking-carousel .carousel-btn.prev {
+                left: -45px;
+            }
+
+            .speaking-carousel .carousel-btn.next {
+                right: -45px;
+            }
         }
 
         .talk-card {
@@ -750,8 +1036,8 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Our Mission: Making Security Practical</h3>
-                    <p>RogoLabs transforms overwhelming vulnerability data into clear, actionable intelligence that security teams can actually use. We believe the best security happens when practical tools are shared freely with the community—no vendor lock-in, no hidden costs, just effective solutions.</p>
+                    <h3>My Mission: Making Security Practical</h3>
+                    <p>I transform overwhelming vulnerability data into clear, actionable intelligence that security teams can actually use. I believe the best security happens when practical tools are shared freely with the community—no vendor lock-in, no hidden costs, just effective solutions.</p>
                     
                     <h3>The Story Behind RogoLabs</h3>
                     <p>I created RogoLabs to solve a fundamental problem: <strong style="color: var(--primary); font-weight: 700;">"How do we fix what matters?"</strong> The name is from the Latin verb <em>"rogo"</em> ("I ask"), the root of the word "interrogate." My mission is to <strong>relentlessly question vulnerability data</strong> to reveal what truly requires action.</p>
@@ -773,57 +1059,93 @@
                 <h2>Open-Source Security Tools</h2>
                 <p>Battle-tested solutions addressing your biggest vulnerability management challenges</p>
             </div>
-            <div class="projects-grid">
-                <!-- CVE.ICU -->
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>CVE.ICU</h3>
-                        <p><strong>Tired of drowning in CVE data?</strong> Transform vulnerability chaos into visual intelligence with interactive charts that reveal the patterns that matter. Our real-time dashboard, updated every 4 hours from the NVD, cuts through the noise to show you what's actually happening in the threat landscape.</p>
-                        <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
-                            <div>✓ Spot emerging trends instantly</div>
-                            <div>✓ Filter out the noise</div>
-                            <div>✓ Make data-driven decisions</div>
+            
+            <!-- Projects Carousel -->
+            <div class="projects-carousel">
+                <!-- Carousel Navigation Arrows -->
+                <div class="carousel-nav">
+                    <button class="carousel-btn prev" id="prevBtn" aria-label="Previous project">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next" id="nextBtn" aria-label="Next project">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="projects-track-container">
+                    <div class="projects-track" id="projectsTrack">
+                        <!-- CVE.ICU -->
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>CVE.ICU</h3>
+                                <p><strong>Tired of drowning in CVE data?</strong> Transform vulnerability chaos into visual intelligence with interactive charts that reveal the patterns that matter. Our real-time dashboard, updated every 4 hours from the NVD, cuts through the noise to show you what's actually happening in the threat landscape.</p>
+                                <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
+                                    <div>✓ Spot emerging trends instantly</div>
+                                    <div>✓ Filter out the noise</div>
+                                    <div>✓ Make data-driven decisions</div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://cve.icu" target="_blank" class="btn" style="text-align: center;">See CVE Patterns Now</a>
+                                    <a href="https://github.com/jgamblin/cve.icu" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="project-links">
-                            <a href="https://cve.icu" target="_blank" class="btn" style="text-align: center;">See CVE Patterns Now</a>
-                            <a href="https://github.com/jgamblin/cve.icu" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
+
+                        <!-- PatchThis.app -->
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>PatchThis.app</h3>
+                                <p><strong>Stop playing patch roulette.</strong> Automatically prioritize critical patches based on actual risk to your systems, not just CVSS scores. Our proven approach dramatically reduces patch workload while maintaining complete security coverage.</p>
+                                <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
+                                    <div>✓ Risk-based prioritization</div>
+                                    <div>✓ Reduced patching overhead</div>
+                                    <div>✓ Focus on real threats</div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://patchthis.app" target="_blank" class="btn" style="text-align: center;">End Patch Chaos Now</a>
+                                    <a href="https://github.com/jgamblin/patchthisapp" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CVEforecast -->
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>CVEforecast</h3>
+                                <p><strong>See tomorrow's vulnerabilities today.</strong> Advanced predictive analytics that forecast vulnerability trends and emerging threat patterns. Stay ahead of the curve with machine learning-powered insights that help you prepare for what's coming next in the threat landscape.</p>
+                                <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
+                                    <div>✓ Predictive threat intelligence</div>
+                                    <div>✓ Early warning system</div>
+                                    <div>✓ Strategic security planning</div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://cveforecast.org" target="_blank" class="btn" style="text-align: center;">Forecast Future Threats</a>
+                                    <a href="https://github.com/rogolabs/CVEforecast" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CNAScoreCard -->
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>CNA Scorecard</h3>
+                                <p><strong>Not all CVE sources are created equal.</strong> Get data-driven quality ratings for every CVE Numbering Authority so you can focus on reliable vulnerability intelligence and stop wasting time on inconsistent, low-quality reports.</p>
+                                <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
+                                    <div>✓ Trust verified sources</div>
+                                    <div>✓ Avoid poor-quality data</div>
+                                    <div>✓ Streamline intelligence workflows</div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://cnascorecard.org" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center;">Check CNA Quality Now</a>
+                                    <a href="https://github.com/jgamblin/CNAScoreCard" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- PatchThis.app -->
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>PatchThis.app</h3>
-                        <p><strong>Stop playing patch roulette.</strong> Automatically prioritize critical patches based on actual risk to your systems, not just CVSS scores. Our proven approach dramatically reduces patch workload while maintaining complete security coverage.</p>
-                        <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
-                            <div>✓ Risk-based prioritization</div>
-                            <div>✓ Reduced patching overhead</div>
-                            <div>✓ Focus on real threats</div>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://patchthis.app" target="_blank" class="btn" style="text-align: center;">End Patch Chaos Now</a>
-                            <a href="https://github.com/jgamblin/patchthisapp" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CNAScoreCard -->
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>CNA Scorecard</h3>
-                        <p><strong>Not all CVE sources are created equal.</strong> Get data-driven quality ratings for every CVE Numbering Authority so you can focus on reliable vulnerability intelligence and stop wasting time on inconsistent, low-quality reports.</p>
-                        <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
-                            <div>✓ Trust verified sources</div>
-                            <div>✓ Avoid poor-quality data</div>
-                            <div>✓ Streamline intelligence workflows</div>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://cnascorecard.org" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center;">Check CNA Quality Now</a>
-                            <a href="https://github.com/jgamblin/CNAScoreCard" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
-                        </div>
-                    </div>
-                </div>
+                <!-- Carousel Dots Indicator -->
+                <div class="carousel-dots" id="carouselDots"></div>
             </div>
         </div>
     </section>
@@ -835,46 +1157,79 @@
                 <h2>Proven Expertise & Thought Leadership</h2>
                 <p>Real-world vulnerability intelligence insights from the front lines of security</p>
             </div>
-            <div class="speaking-grid">
-                <!-- VulnCon 2025 -->
-                <div class="talk-card">
-                    <h3>The Quality Imperative for CVEs</h3>
-                    <p class="talk-subtitle">Enhancing Vulnerability Reporting Standards</p>
-                    <div class="talk-meta">
-                        <span><i class="far fa-calendar"></i> March 2025</span>
-                        <span><i class="fas fa-map-marker-alt"></i> VulnCon Virtual (FIRST.org)</span>
-                    </div>
-                    <p>Keynote presentation showcasing real-world data on CNA performance gaps and actionable solutions to improve vulnerability reporting quality. Learn how poor-quality CVE data costs security teams time and how we can fix it.</p>
-                    <div style="margin-top: 1rem;">
-                        <a href="https://www.first.org/conference/vulncon2025/program" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">See Full Program</a>
+            
+            <!-- Speaking Carousel -->
+            <div class="speaking-carousel">
+                <!-- Carousel Navigation Arrows -->
+                <div class="carousel-nav">
+                    <button class="carousel-btn prev" id="speakingPrevBtn" aria-label="Previous talk">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn next" id="speakingNextBtn" aria-label="Next talk">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="speaking-track-container">
+                    <div class="speaking-track" id="speakingTrack">
+                        <!-- BSidesLV 2025 (Upcoming) -->
+                        <div class="talk-card">
+                            <h3>The Art of Concealment: CVE's Challenge with Transparency</h3>
+                            <div class="talk-meta">
+                                <span><i class="far fa-calendar"></i> August 5, 2025</span>
+                                <span><i class="fas fa-clock"></i> 14:30</span>
+                                <span><i class="fas fa-map-marker-alt"></i> BSidesLV, Las Vegas</span>
+                            </div>
+                            <p>In the cybersecurity world, the Common Vulnerabilities and Exposures (CVE) system serves as a cornerstone for understanding and mitigating security threats. However, the process of contributing to and utilizing CVE data is often hindered by issues related to transparency. This talk explores how the CVE community struggles with openness, examining why participants—such as vulnerability researchers, vendors, and users—may sometimes fall short of full disclosure.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="https://bsideslv.org/" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More About BSidesLV</a>
+                            </div>
+                        </div>
+
+                        <!-- VulnCon 2025 -->
+                        <div class="talk-card">
+                            <h3>The Quality Imperative for CVEs</h3>
+                            <p class="talk-subtitle">Enhancing Vulnerability Reporting Standards</p>
+                            <div class="talk-meta">
+                                <span><i class="far fa-calendar"></i> March 2025</span>
+                                <span><i class="fas fa-map-marker-alt"></i> VulnCon Virtual (FIRST.org)</span>
+                            </div>
+                            <p>Keynote presentation showcasing real-world data on CNA performance gaps and actionable solutions to improve vulnerability reporting quality. Learn how poor-quality CVE data costs security teams time and how we can fix it.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="https://www.first.org/conference/vulncon2025/program" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">See Full Program</a>
+                            </div>
+                        </div>
+
+                        <!-- AppSec Village at DEFCON 2024 -->
+                        <div class="talk-card">
+                            <h3>Using EPSS for Better Vulnerability Management</h3>
+                            <div class="talk-meta">
+                                <span><i class="far fa-calendar"></i> August 2024</span>
+                                <span><i class="fas fa-map-marker-alt"></i> AppSec Village at DEFCON 32, Las Vegas</span>
+                            </div>
+                            <p>Real-world case studies showing how the Exploit Prediction Scoring System (EPSS) can deliver a <strong>70% reduction in patch workload</strong> while maintaining security coverage. Practical implementation strategies that work.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="https://www.youtube.com/watch?v=Lgv11FoNa3w" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Watch The Talk</a>
+                            </div>
+                        </div>
+
+                        <!-- Placeholder for Future Talk -->
+                        <div class="talk-card" style="background-color: var(--bg-secondary);">
+                            <h3>Ready to Level Up Your Event?</h3>
+                            <div class="talk-meta">
+                                <span><i class="far fa-calendar"></i> Your Conference</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Your Venue</span>
+                            </div>
+                            <p>Looking for practical vulnerability intelligence insights that your audience can actually implement? Let's discuss how proven strategies and real data can add serious value to your event.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="#contact" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Book Jerry as Speaker</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- AppSec Village at DEFCON 2024 -->
-                <div class="talk-card">
-                    <h3>Using EPSS for Better Vulnerability Management</h3>
-                    <div class="talk-meta">
-                        <span><i class="far fa-calendar"></i> August 2024</span>
-                        <span><i class="fas fa-map-marker-alt"></i> AppSec Village at DEFCON 32, Las Vegas</span>
-                    </div>
-                    <p>Real-world case studies showing how the Exploit Prediction Scoring System (EPSS) can deliver a <strong>70% reduction in patch workload</strong> while maintaining security coverage. Practical implementation strategies that work.</p>
-                    <div style="margin-top: 1rem;">
-                        <a href="https://www.youtube.com/watch?v=Lgv11FoNa3w" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Watch Full Session</a>
-                    </div>
-                </div>
-
-                <!-- Placeholder for Future Talk -->
-                <div class="talk-card" style="background-color: var(--bg-secondary);">
-                    <h3>Ready to Level Up Your Event?</h3>
-                    <div class="talk-meta">
-                        <span><i class="far fa-calendar"></i> Your Conference</span>
-                        <span><i class="fas fa-map-marker-alt"></i> Your Venue</span>
-                    </div>
-                    <p>Looking for practical vulnerability intelligence insights that your audience can actually implement? Let's discuss how proven strategies and real data can add serious value to your event.</p>
-                    <div style="margin-top: 1rem;">
-                        <a href="#contact" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Book Jerry as Speaker</a>
-                    </div>
-                </div>
+                <!-- Carousel Dots Indicator -->
+                <div class="carousel-dots" id="speakingCarouselDots"></div>
             </div>
         </div>
     </section>
@@ -883,11 +1238,11 @@
     <section id="contact" class="contact">
         <div class="container">
             <div class="section-title">
-                <h2>Let's Talk Security Intelligence</h2>
+                <h2>Let's Talk Vulnerability Intelligence</h2>
                 <p>Ready to transform your vulnerability management approach?<br>Let's connect.</p>
             </div>
             <p>Whether you're interested in collaborating on open-source projects, booking speaking engagements, or discussing how our tools can help your team cut through vulnerability chaos, I'd love to hear from you.</p>
-            <a href="mailto:contact@rogolabs.net" class="btn" style="margin-top: 1.5rem;">Start the Conversation</a>
+            <a href="mailto:jerry.gamblin@gmail.com" class="btn" style="margin-top: 1.5rem;">Start the Conversation</a>
             
             <div class="social-links">
                 <a href="https://github.com/jgamblin" target="_blank" class="social-link" aria-label="GitHub">
