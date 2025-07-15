@@ -767,6 +767,72 @@
             color: var(--primary);
         }
 
+        /* Book Speaking Section */
+        .book-speaking {
+            background-color: var(--bg-primary);
+            text-align: center;
+        }
+
+        .book-speaking-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .book-speaking-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .book-speaking-text p {
+            margin-bottom: 2rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .speaking-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .benefit-item i {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-item h4 {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .benefit-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .speaking-benefits {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
         /* Contact Section */
         .contact {
             background-color: var(--bg-secondary);
@@ -1172,6 +1238,19 @@
 
                 <div class="speaking-track-container">
                     <div class="speaking-track" id="speakingTrack">
+                        <!-- DEF CON 33 AppSec Village 2025 (Upcoming) -->
+                        <div class="talk-card">
+                            <h3>CVE Crisis: State of the Vulnerability Disclosure Landscape</h3>
+                            <div class="talk-meta">
+                                <span><i class="far fa-calendar"></i> August 7-10, 2025</span>
+                                <span><i class="fas fa-map-marker-alt"></i> AppSec Village at DEF CON 33, Las Vegas</span>
+                            </div>
+                            <p>Our vulnerability disclosure ecosystem is strained. NVD backlogs persist, while the CVE program, after a near-critical funding crisis impacting its stability, struggles with vulnerability volume and assignment consistency under ongoing resource pressure. CISA's role also evolves amidst these challenges. This talk dissects these US program issues and their impact on AppSec professionals, then examines rising global players like ENISA and other vulnerability databases, assessing their pros, cons, and impact on vulnerability management.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="https://appsecvillage.org/" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More About AppSec Village</a>
+                            </div>
+                        </div>
+
                         <!-- BSidesLV 2025 (Upcoming) -->
                         <div class="talk-card">
                             <h3>The Art of Concealment: CVE's Challenge with Transparency</h3>
@@ -1212,24 +1291,55 @@
                                 <a href="https://www.youtube.com/watch?v=Lgv11FoNa3w" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Watch The Talk</a>
                             </div>
                         </div>
-
-                        <!-- Placeholder for Future Talk -->
-                        <div class="talk-card" style="background-color: var(--bg-secondary);">
-                            <h3>Ready to Level Up Your Event?</h3>
-                            <div class="talk-meta">
-                                <span><i class="far fa-calendar"></i> Your Conference</span>
-                                <span><i class="fas fa-map-marker-alt"></i> Your Venue</span>
-                            </div>
-                            <p>Looking for practical vulnerability intelligence insights that your audience can actually implement? Let's discuss how proven strategies and real data can add serious value to your event.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="#contact" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Book Jerry as Speaker</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
                 <!-- Carousel Dots Indicator -->
                 <div class="carousel-dots" id="speakingCarouselDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Speaking Section -->
+    <section class="book-speaking">
+        <div class="container">
+            <div class="section-title">
+                <h2>Speaking Engagements</h2>
+                <p>Happy to share what I've learned about vulnerability intelligence</p>
+            </div>
+            <div class="book-speaking-content">
+                <div class="book-speaking-text">
+                    <h3>Available for Events & Conferences</h3>
+                    <p>Looking for practical vulnerability intelligence insights that your audience can actually implement? I deliver data-driven presentations that cut through the hype and provide actionable strategies your security teams can use immediately.</p>
+                    
+                    <div class="speaking-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <h4>Data-Driven Insights</h4>
+                                <p>Real-world research and proven methodologies</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-tools"></i>
+                            <div>
+                                <h4>Practical Solutions</h4>
+                                <p>Actionable strategies your teams can implement</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>Engaging Delivery</h4>
+                                <p>Interactive presentations that resonate with security professionals</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="mailto:jerry.gamblin@gmail.com?subject=Speaking%20Engagement%20Inquiry&body=Hi%20Jerry%2C%0A%0AI%27d%20like%20to%20discuss%20having%20you%20speak%20at%20our%20event.%20Here%20are%20the%20details%3A%0A%0AEvent%20Name%3A%20%0ADate%3A%20%0ALocation%3A%20%0AAudience%20Size%3A%20%0ATopic%20of%20Interest%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you%21" class="btn">Book Jerry as Speaker</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
