@@ -781,22 +781,16 @@ class App {
 // Initialize the application
 new App();
 
-// Service Worker registration for PWA capabilities
-// Only register if we're on a supported protocol (https or localhost)
-if ('serviceWorker' in navigator && isServiceWorkerSupported()) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-            .then((registration) => {
-                console.log('✅ Service Worker registered successfully:', registration);
-            })
-            .catch((registrationError) => {
-                console.warn('⚠️ Service Worker registration failed:', registrationError.message);
-            });
+
+// Unregister any existing service worker to prevent old cached versions
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
     });
-} else if ('serviceWorker' in navigator) {
-    console.info('ℹ️ Service Worker not registered: unsupported protocol (file://). This is normal for local development.');
-} else {
-    console.info('ℹ️ Service Worker not supported in this browser.');
+  });
 }
 
 function isServiceWorkerSupported() {
