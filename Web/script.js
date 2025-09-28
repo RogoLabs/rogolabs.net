@@ -750,6 +750,23 @@ class App {
     
     initializeModules() {
         try {
+            // Randomize project cards before initializing carousels so each load shows a different ordering
+            (function shuffleProjectCards() {
+                const track = document.getElementById('projectsTrack');
+                if (!track) return;
+                const cards = Array.from(track.children);
+                if (cards.length < 2) return; // nothing to shuffle
+                // Fisher-Yates style shuffle using in-memory array then re-append for minimal layout thrash
+                for (let i = cards.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [cards[i], cards[j]] = [cards[j], cards[i]];
+                }
+                // Re-append in new order
+                const frag = document.createDocumentFragment();
+                cards.forEach(c => frag.appendChild(c));
+                track.appendChild(frag);
+            })();
+
             // Initialize modules with better error handling
             const moduleClasses = [
                 { name: 'DevModeHelper', class: DevModeHelper },
@@ -781,16 +798,22 @@ class App {
 // Initialize the application
 new App();
 
-
-// Unregister any existing service worker to prevent old cached versions
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.getRegistrations().then(function(registrations) {
-      for (let registration of registrations) {
-        registration.unregister();
-      }
+// Service Worker registration for PWA capabilities
+// Only register if we're on a supported protocol (https or localhost)
+if ('serviceWorker' in navigator && isServiceWorkerSupported()) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+            .then((registration) => {
+                console.log('✅ Service Worker registered successfully:', registration);
+            })
+            .catch((registrationError) => {
+                console.warn('⚠️ Service Worker registration failed:', registrationError.message);
+            });
     });
-  });
+} else if ('serviceWorker' in navigator) {
+    console.info('ℹ️ Service Worker not registered: unsupported protocol (file://). This is normal for local development.');
+} else {
+    console.info('ℹ️ Service Worker not supported in this browser.');
 }
 
 function isServiceWorkerSupported() {

@@ -8,11 +8,6 @@
     <meta name="keywords" content="vulnerability intelligence, CVE, EPSS, patch management, cybersecurity, Jerry Gamblin, security research">
     
     <!-- Open Graph / Facebook -->
-
-    <!-- Cache Busting Meta Tags -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://rogolabs.net/">
     <meta property="og:title" content="RogoLabs - See Vulnerabilities Before They See You">
@@ -28,8 +23,8 @@
     <meta property="twitter:creator" content="@jgamblin">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="rogolabs-logo.svg?v=20250726">
-    <link rel="apple-touch-icon" sizes="180x180" href="rogolabs-logo-simple.png?v=20250726">
+    <link rel="icon" type="image/svg+xml" href="rogolabs-logo.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="rogolabs-logo-simple.png">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://rogolabs.net/">
@@ -42,10 +37,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" media="print" onload="this.media='all'">
     
     <!-- Modern CSS -->
-    <link rel="stylesheet" href="styles.css?v=20250726">
+    <link rel="stylesheet" href="styles.css">
     
     <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json?v=20250726">
+    <link rel="manifest" href="manifest.json">
     
     <!-- Modern meta tags -->
     <meta name="theme-color" content="#2563eb">
@@ -53,20 +48,21 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="RogoLabs">
     <meta name="msapplication-TileColor" content="#2563eb">
-    <meta name="msapplication-config" content="browserconfig.xml?v=20250726">
+    <meta name="msapplication-config" content="browserconfig.xml">
     
     <!-- Resource hints -->
     <link rel="dns-prefetch" href="//github.com">
     <link rel="dns-prefetch" href="//twitter.com">
     <link rel="dns-prefetch" href="//linkedin.com">
-    <link rel="preload" href="styles.css?v=20250726" as="style">
-    <link rel="preload" href="script.js?v=20250726" as="script">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
+            "@id": "https://rogolabs.net/#jerry",
       "name": "Jerry Gamblin",
       "url": "https://rogolabs.net",
       "image": "https://rogolabs.net/jerry-gamblin.jpg",
@@ -84,6 +80,175 @@
       ]
     }
     </script>
+        <!-- Structured Data: Speaking Events -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "Event",
+                    "name": "Navigating the Volatile Vulnerability Landscape",
+                    "startDate": "2025-11-17",
+                    "eventStatus": "https://schema.org/EventScheduled",
+                    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                    "location": {
+                        "@type": "Place",
+                        "name": "The Westin Grand Munich",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "Arabellastraße 6",
+                            "postalCode": "81925",
+                            "addressLocality": "München",
+                            "addressCountry": "DE"
+                        }
+                    },
+                    "performer": { "@id": "https://rogolabs.net/#jerry" },
+                    "description": "Upcoming talk analyzing strain in global vulnerability disclosure (CVE funding challenges, NVD backlog) and strategies for resilient, diversified vulnerability intelligence using emerging alternative sources.",
+                    "url": "https://2025.bsidesmunich.org/talks/001_navigating-the-volatile-vulnerability-landscape-strategies-for-resilience/"
+                },
+                {
+                    "@type": "Event",
+                    "name": "Navigating the CVE Crisis",
+                    "startDate": "2025-09-27",
+                    "eventStatus": "https://schema.org/EventCompleted",
+                    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                    "location": {
+                        "@type": "Place",
+                        "name": "BSides Newcastle 2025",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Newcastle upon Tyne",
+                            "addressCountry": "GB"
+                        }
+                    },
+                    "performer": { "@id": "https://rogolabs.net/#jerry" },
+                    "workFeatured": {
+                        "@type": "CreativeWork",
+                        "name": "Navigating the CVE Crisis",
+                        "fileFormat": "application/pdf",
+                        "contentUrl": "https://rogolabs.net/Talks/Navigating-the-CVE-Crisis.pdf",
+                        "url": "https://rogolabs.net/Talks/Navigating-the-CVE-Crisis.pdf"
+                    },
+                    "description": "This presentation addresses the 'Perfect Storm' challenging the vulnerability disclosure ecosystem, detailing the critical issues of the CVE funding crisis and the resultant NVD backlogs, where over 25,000 vulnerabilities face an average delay of 120+ days in enrichment and scoring."
+                },
+                {
+                    "@type": "Event",
+                    "name": "A Time Series Approach to Predicting CVE Volume",
+                    "startDate": "2025-09-25",
+                    "eventStatus": "https://schema.org/EventCompleted",
+                    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                    "location": {
+                        "@type": "Place",
+                        "name": "Vulnerability Forecasting Technical Colloquium (Vuln4cast 2025) – Darwin College",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Cambridge",
+                            "addressCountry": "GB"
+                        }
+                    },
+                        "performer": { "@id": "https://rogolabs.net/#jerry" },
+                        "workFeatured": {
+                            "@type": "CreativeWork",
+                            "name": "A Time Series Approach to Predicting CVE Volume",
+                            "fileFormat": "application/pdf",
+                            "contentUrl": "https://rogolabs.net/Talks/A-Time-Series-Approach-to-Predicting-CVE-Volume.pdf",
+                            "url": "https://rogolabs.net/Talks/A-Time-Series-Approach-to-Predicting-CVE-Volume.pdf"
+                        },
+                        "description": "Introduces CVEforecast.org, outlining the accelerating CVE volume problem and an ensemble approach (statistical, ML, deep learning, CNA-specific forecasting) to shift vulnerability management from reactive response to predictive planning."
+                },
+                {
+                    "@type": "Event",
+                    "name": "CVE Crisis: State of the Vulnerability Disclosure Landscape",
+                    "startDate": "2025-08-07",
+                    "endDate": "2025-08-10",
+                    "eventStatus": "https://schema.org/EventCompleted",
+                    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                    "location": {
+                        "@type": "Place",
+                        "name": "AppSec Village at DEF CON 33",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Las Vegas",
+                            "addressRegion": "NV",
+                            "addressCountry": "US"
+                        }
+                    },
+                    "performer": { "@id": "https://rogolabs.net/#jerry" },
+                    "workFeatured": {
+                        "@type": "CreativeWork",
+                        "name": "CVE Crisis: State of the Vulnerability Disclosure Landscape (Slides)",
+                        "fileFormat": "application/pdf",
+                        "contentUrl": "https://rogolabs.net/Talks/The%20CVE%20Crisis_%20Navigating%20the%20Post-NVD%20Monolith%20Era.pdf",
+                        "url": "https://rogolabs.net/Talks/The%20CVE%20Crisis_%20Navigating%20the%20Post-NVD%20Monolith%20Era.pdf"
+                    },
+                    "description": "State-of-the-landscape analysis covering NVD backlog dynamics, CVE program funding stress, assignment consistency, and comparative emergence of alternative/global vulnerability data sources and their operational impact." 
+                },
+                {
+                    "@type": "Event",
+                    "name": "The Art of Concealment: CVE's Challenge with Transparency",
+                    "startDate": "2025-08-05",
+                    "eventStatus": "https://schema.org/EventCompleted",
+                    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                    "location": {
+                        "@type": "Place",
+                        "name": "BSidesLV 2025",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Las Vegas",
+                            "addressRegion": "NV",
+                            "addressCountry": "US"
+                        }
+                    },
+                    "performer": { "@id": "https://rogolabs.net/#jerry" },
+                    "description": "Exploration of transparency gaps in CVE processes and their impact on vulnerability ecosystem trust and efficiency.",
+                    "workFeatured": {
+                        "@type": "CreativeWork",
+                        "name": "The Art of Concealment: CVE's Challenge with Transparency (Slides)",
+                        "fileFormat": "application/pdf",
+                        "contentUrl": "https://rogolabs.net/Talks/The%20Art%20of%20Concealment.pdf",
+                        "url": "https://rogolabs.net/Talks/The%20Art%20of%20Concealment.pdf"
+                    }
+                },
+                {
+                    "@type": "Event",
+                    "name": "The Quality Imperative for CVEs",
+                    "startDate": "2025-04-07",
+                    "eventStatus": "https://schema.org/EventCompleted",
+                    "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+                    "location": {
+                        "@type": "VirtualLocation",
+                        "url": "https://www.first.org/conference/vulncon2025/program"
+                    },
+                    "performer": { "@id": "https://rogolabs.net/#jerry" },
+                    "description": "Keynote presenting empirical CNA performance gaps and methods to raise vulnerability reporting quality across the ecosystem."
+                },
+                {
+                    "@type": "Event",
+                    "name": "Using EPSS for Better Vulnerability Management",
+                    "startDate": "2024-08-11",
+                    "eventStatus": "https://schema.org/EventCompleted",
+                    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                    "location": {
+                        "@type": "Place",
+                        "name": "AppSec Village at DEFCON 32",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Las Vegas",
+                            "addressRegion": "NV",
+                            "addressCountry": "US"
+                        }
+                    },
+                    "performer": { "@id": "https://rogolabs.net/#jerry" },
+                    "description": "Case studies on operationalizing EPSS to reduce patch workload while preserving risk coverage.",
+                    "workFeatured": {
+                        "@type": "CreativeWork",
+                        "name": "Using EPSS for Better Vulnerability Management (Recording)",
+                        "url": "https://www.youtube.com/watch?v=Lgv11FoNa3w"
+                    }
+                }
+            ]
+        }
+        </script>
     <style>
         :root {
             --primary: #2563eb;
@@ -772,72 +937,6 @@
             color: var(--primary);
         }
 
-        /* Book Speaking Section */
-        .book-speaking {
-            background-color: var(--bg-primary);
-            text-align: center;
-        }
-
-        .book-speaking-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .book-speaking-text h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-        }
-
-        .book-speaking-text p {
-            margin-bottom: 2rem;
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-
-        .speaking-benefits {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-            text-align: left;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .benefit-item i {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin-top: 0.25rem;
-            flex-shrink: 0;
-        }
-
-        .benefit-item h4 {
-            color: var(--text-primary);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .benefit-item p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        @media (max-width: 768px) {
-            .speaking-benefits {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-
         /* Contact Section */
         .contact {
             background-color: var(--bg-secondary);
@@ -1243,32 +1342,72 @@
 
                 <div class="speaking-track-container">
                     <div class="speaking-track" id="speakingTrack">
-                        <!-- DEF CON 33 AppSec Village 2025 -->
-                        <div class="talk-card">
-                            <h3>CVE Crisis: State of the Vulnerability Disclosure Landscape</h3>
+                        <!-- Upcoming: BSides Munich 2025 -->
+                        <div class="talk-card" style="position:relative;">
+                            <h3>Navigating the Volatile Vulnerability Landscape <span style="display:inline-block;background:var(--primary);color:#fff;font-size:0.65rem;font-weight:600;padding:0.25rem 0.45rem;border-radius:0.375rem;vertical-align:middle;margin-left:0.4rem;letter-spacing:0.5px;">UPCOMING</span></h3>
                             <div class="talk-meta">
-                                <span><i class="far fa-calendar"></i> August 7-10, 2025</span>
-                                <span><i class="fas fa-map-marker-alt"></i> AppSec Village at DEF CON 33, Las Vegas</span>
+                                <span><i class="far fa-calendar"></i> <time datetime="2025-11-17">November 17, 2025</time></span>
+                                <span><i class="fas fa-map-marker-alt"></i> The Westin Grand Munich<br>München, Germany</span>
                             </div>
-                            <p>Our vulnerability disclosure ecosystem is strained. NVD backlogs persist, while the CVE program, after a near-critical funding crisis impacting its stability, struggles with vulnerability volume and assignment consistency under ongoing resource pressure. CISA's role also evolves amidst these challenges. This talk dissects these US program issues and their impact on AppSec professionals, then examines rising global players like ENISA and other vulnerability databases, assessing their pros, cons, and impact on vulnerability management.</p>
-                            <div style="margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                                <a href="Talks/The CVE Crisis_ Navigating the Post-NVD Monolith Era.pdf?v=20250726" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">View Slides</a>
-                                <a href="https://appsecvillage.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More About AppSec Village</a>
+                            <p>The global vulnerability disclosure ecosystem is shifting under funding pressure and enrichment delays. This session examines CVE program stress and NVD backlog impact, then evaluates emerging alternative intelligence sources (e.g. ENISA and independent databases) with practical strategies to diversify inputs, prioritize beyond raw scores, and build a more resilient AppSec workflow.</p>
+                            <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+                                <a href="https://2025.bsidesmunich.org/" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Event Site</a>
                             </div>
                         </div>
 
-                        <!-- BSidesLV 2025 -->
+                        <!-- Navigating the CVE Crisis (BSides Newcastle 2025) -->
+                        <div class="talk-card">
+                            <h3>Navigating the CVE Crisis</h3>
+                            <div class="talk-meta">
+                                <span><i class="far fa-calendar"></i> <time datetime="2025-09-27">September 27, 2025</time></span>
+                                <span><i class="fas fa-map-marker-alt"></i> Newcastle upon Tyne, UK</span>
+                            </div>
+                            <p>This presentation addresses the "Perfect Storm" challenging the vulnerability disclosure ecosystem, detailing the critical issues of the CVE funding crisis and the resultant NVD backlogs, where over 25,000 vulnerabilities face an average delay of 120+ days in enrichment and scoring.</p>
+                            <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+                                <a href="Talks/Navigating-the-CVE-Crisis.pdf" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Download Slides (PDF)</a>
+                                <a href="https://www.bsidesnewcastle.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.875rem;">Event Site</a>
+                            </div>
+                        </div>
+
+                        <!-- A Time Series Approach to Predicting CVE Volume (Vuln4cast 2025) -->
+                        <div class="talk-card">
+                            <h3>A Time Series Approach to Predicting CVE Volume</h3>
+                            <div class="talk-meta">
+                                <span><i class="far fa-calendar"></i> <time datetime="2025-09-25">September 25, 2025</time></span>
+                                <span><i class="fas fa-map-marker-alt"></i> Darwin College, Cambridge, UK</span>
+                            </div>
+                            <p>Introduces <strong>CVEforecast.org</strong>, a RogoLabs project focused on predictive CVE volume forecasting. It outlines the crisis of accelerating CVE growth and advocates shifting from reactive to predictive vulnerability management using time-series analysis. The platform employs an ensemble of statistical, machine learning, and deep learning models (plus CNA-specific forecasting) to deliver high-accuracy forward-looking vulnerability volume intelligence.</p>
+                            <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+                                <a href="Talks/A-Time-Series-Approach-to-Predicting-CVE-Volume.pdf" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Download Slides (PDF)</a>
+                                <a href="https://www.first.org/events/colloquia/vuln4cast25/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.875rem;">Event Site</a>
+                            </div>
+                        </div>
+
+                        <!-- CVE Crisis: State of the Vulnerability Disclosure Landscape (AppSec Village @ DEF CON 33) -->
+                        <div class="talk-card">
+                            <h3>CVE Crisis: State of the Vulnerability Disclosure Landscape</h3>
+                            <div class="talk-meta">
+                                <span><i class="far fa-calendar"></i> <time datetime="2025-08-07">August 7–10, 2025</time></span>
+                                <span><i class="fas fa-map-marker-alt"></i> AppSec Village at DEF CON 33, Las Vegas</span>
+                            </div>
+                            <p>Our vulnerability disclosure ecosystem is strained. NVD backlogs persist while the CVE program, after a near-critical funding crisis, struggles with volume, assignment consistency, and timely enrichment. This session dissects these US program pressures and their downstream impact on AppSec teams, then examines emerging global alternatives and how to evaluate their strengths, limitations, and operational value.</p>
+                            <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+                                <a href="Talks/The%20CVE%20Crisis_%20Navigating%20the%20Post-NVD%20Monolith%20Era.pdf" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Download Slides (PDF)</a>
+                            </div>
+                        </div>
+
+                        <!-- The Art of Concealment (BSidesLV 2025) -->
                         <div class="talk-card">
                             <h3>The Art of Concealment: CVE's Challenge with Transparency</h3>
                             <div class="talk-meta">
-                                <span><i class="far fa-calendar"></i> August 5, 2025</span>
+                                <span><i class="far fa-calendar"></i> <time datetime="2025-08-05">August 5, 2025</time></span>
                                 <span><i class="fas fa-clock"></i> 14:30</span>
                                 <span><i class="fas fa-map-marker-alt"></i> BSidesLV, Las Vegas</span>
                             </div>
                             <p>In the cybersecurity world, the Common Vulnerabilities and Exposures (CVE) system serves as a cornerstone for understanding and mitigating security threats. However, the process of contributing to and utilizing CVE data is often hindered by issues related to transparency. This talk explores how the CVE community struggles with openness, examining why participants—such as vulnerability researchers, vendors, and users—may sometimes fall short of full disclosure.</p>
-                            <div style="margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                                <a href="Talks/The Art of Concealment.pdf?v=20250726" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">View Slides</a>
-                                <a href="https://bsideslv.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Learn More About BSidesLV</a>
+                            <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+                                <a href="Talks/The%20Art%20of%20Concealment.pdf" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Download Slides (PDF)</a>
+                                <a href="https://bsideslv.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Event Site</a>
                             </div>
                         </div>
 
@@ -1277,7 +1416,7 @@
                             <h3>The Quality Imperative for CVEs</h3>
                             <p class="talk-subtitle">Enhancing Vulnerability Reporting Standards</p>
                             <div class="talk-meta">
-                                <span><i class="far fa-calendar"></i> March 2025</span>
+                                <span><i class="far fa-calendar"></i> <time datetime="2025-04-07">April 7, 2025</time></span>
                                 <span><i class="fas fa-map-marker-alt"></i> VulnCon Virtual (FIRST.org)</span>
                             </div>
                             <p>Keynote presentation showcasing real-world data on CNA performance gaps and actionable solutions to improve vulnerability reporting quality. Learn how poor-quality CVE data costs security teams time and how we can fix it.</p>
@@ -1290,7 +1429,7 @@
                         <div class="talk-card">
                             <h3>Using EPSS for Better Vulnerability Management</h3>
                             <div class="talk-meta">
-                                <span><i class="far fa-calendar"></i> August 2024</span>
+                                <span><i class="far fa-calendar"></i> <time datetime="2024-08-11">August 11, 2024</time></span>
                                 <span><i class="fas fa-map-marker-alt"></i> AppSec Village at DEFCON 32, Las Vegas</span>
                             </div>
                             <p>Real-world case studies showing how the Exploit Prediction Scoring System (EPSS) can deliver a <strong>70% reduction in patch workload</strong> while maintaining security coverage. Practical implementation strategies that work.</p>
@@ -1298,55 +1437,24 @@
                                 <a href="https://www.youtube.com/watch?v=Lgv11FoNa3w" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Watch The Talk</a>
                             </div>
                         </div>
+
+                        <!-- Placeholder for Future Talk -->
+                        <div class="talk-card" style="background-color: var(--bg-secondary);">
+                            <h3>Ready to Level Up Your Event?</h3>
+                            <div class="talk-meta">
+                                <span><i class="far fa-calendar"></i> Your Conference</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Your Venue</span>
+                            </div>
+                            <p>Looking for practical vulnerability intelligence insights that your audience can actually implement? Let's discuss how proven strategies and real data can add serious value to your event.</p>
+                            <div style="margin-top: 1rem;">
+                                <a href="#contact" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Book Jerry as Speaker</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Carousel Dots Indicator -->
                 <div class="carousel-dots" id="speakingCarouselDots"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Book Speaking Section -->
-    <section class="book-speaking">
-        <div class="container">
-            <div class="section-title">
-                <h2>Speaking Engagements</h2>
-                <p>Happy to share what I've learned about vulnerability intelligence</p>
-            </div>
-            <div class="book-speaking-content">
-                <div class="book-speaking-text">
-                    <h3>Available for Events & Conferences</h3>
-                    <p>Looking for practical vulnerability intelligence insights that your audience can actually implement? I deliver data-driven presentations that cut through the hype and provide actionable strategies your security teams can use immediately.</p>
-                    
-                    <div class="speaking-benefits">
-                        <div class="benefit-item">
-                            <i class="fas fa-chart-line"></i>
-                            <div>
-                                <h4>Data-Driven Insights</h4>
-                                <p>Real-world research and proven methodologies</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-tools"></i>
-                            <div>
-                                <h4>Practical Solutions</h4>
-                                <p>Actionable strategies your teams can implement</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <i class="fas fa-users"></i>
-                            <div>
-                                <h4>Engaging Delivery</h4>
-                                <p>Interactive presentations that resonate with security professionals</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div style="margin-top: 2rem;">
-                        <a href="mailto:jerry.gamblin@gmail.com?subject=Speaking%20Engagement%20Inquiry&body=Hi%20Jerry%2C%0A%0AI%27d%20like%20to%20discuss%20having%20you%20speak%20at%20our%20event.%20Here%20are%20the%20details%3A%0A%0AEvent%20Name%3A%20%0ADate%3A%20%0ALocation%3A%20%0AAudience%20Size%3A%20%0ATopic%20of%20Interest%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you%21" class="btn">Book Jerry as Speaker</a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1394,6 +1502,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=20250726"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
