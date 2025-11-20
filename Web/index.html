@@ -87,10 +87,38 @@
             "@graph": [
                 {
                     "@type": "Event",
+                    "@id": "https://rogolabs.net/#event-blackhat-eu-2025",
+                    "name": "The Post-NVD Era: A Call for Global CVE Decentralization",
+                    "startDate": "2025-12-08",
+                    "endDate": "2025-12-11",
+                    "eventStatus": "https://schema.org/EventScheduled",
+                    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                    "location": {
+                        "@type": "Place",
+                        "name": "ExCeL London",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "London",
+                            "addressCountry": "GB"
+                        }
+                    },
+                    "performer": { "@id": "https://rogolabs.net/#jerry" },
+                    "description": "Examining the critical need for CVE ecosystem decentralization in response to NVD challenges, exploring global alternatives and pathways toward a more resilient, distributed vulnerability intelligence infrastructure.",
+                    "about": [
+                        "Vulnerability Management",
+                        "Cybersecurity",
+                        "CVE Decentralization",
+                        "NVD Alternatives",
+                        "Global Threat Intelligence"
+                    ],
+                    "url": "https://blackhat.com/eu-25/briefings/schedule/#the-post-nvd-era-a-call-for-global-cve-decentralization-49430"
+                },
+                {
+                    "@type": "Event",
                     "@id": "https://rogolabs.net/#event-bsides-munich-2025",
                     "name": "Navigating the Volatile Vulnerability Landscape",
                     "startDate": "2025-11-17",
-                    "eventStatus": "https://schema.org/EventScheduled",
+                    "eventStatus": "https://schema.org/EventCompleted",
                     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
                     "location": {
                         "@type": "Place",
@@ -104,7 +132,14 @@
                         }
                     },
                     "performer": { "@id": "https://rogolabs.net/#jerry" },
-                    "description": "Upcoming talk analyzing strain in global vulnerability disclosure (CVE funding challenges, NVD backlog) and strategies for resilient, diversified vulnerability intelligence using emerging alternative sources.",
+                    "workFeatured": {
+                        "@type": "CreativeWork",
+                        "name": "Navigating the Volatile Vulnerability Landscape - BSides Munich",
+                        "fileFormat": "application/pdf",
+                        "contentUrl": "https://rogolabs.net/Talks/Navigating%20the%20Volatile%20Vulnerability%20Landscape%20-%20BSides%20Munich.pdf",
+                        "url": "https://rogolabs.net/Talks/Navigating%20the%20Volatile%20Vulnerability%20Landscape%20-%20BSides%20Munich.pdf"
+                    },
+                    "description": "Analysis of strain in global vulnerability disclosure (CVE funding challenges, NVD backlog) and strategies for resilient, diversified vulnerability intelligence using emerging alternative sources.",
                     "about": [
                         "Vulnerability Management",
                         "Cybersecurity",
@@ -518,9 +553,23 @@
 
                 <div class="speaking-track-container">
                     <div class="speaking-track" id="speakingTrack">
-                        <!-- Upcoming: BSides Munich 2025 -->
-                        <div class="talk-card" id="talk-bsides-munich-2025" style="position:relative;">
-                            <h4>Navigating the Volatile Vulnerability Landscape <span style="display:inline-block;background:var(--primary);color:#fff;font-size:0.65rem;font-weight:600;padding:0.25rem 0.45rem;border-radius:0.375rem;vertical-align:middle;margin-left:0.4rem;letter-spacing:0.5px;">UPCOMING</span></h4>
+                        <!-- Upcoming: Black Hat Europe 2025 -->
+                        <div class="talk-card" id="talk-blackhat-eu-2025" style="position:relative;">
+                            <h4>The Post-NVD Era: A Call for Global CVE Decentralization <span style="display:inline-block;background:var(--primary);color:#fff;font-size:0.65rem;font-weight:600;padding:0.25rem 0.45rem;border-radius:0.375rem;vertical-align:middle;margin-left:0.4rem;letter-spacing:0.5px;">UPCOMING</span></h4>
+                            <div class="talk-event-info">
+                                <h4>Black Hat Europe</h4>
+                                <div class="talk-location"><i class="fas fa-map-marker-alt"></i> ExCeL London, London, UK</div>
+                                <div class="talk-date"><i class="far fa-calendar"></i> <time datetime="2025-12-08">December 8-11, 2025</time></div>
+                            </div>
+                            <p>Examining the critical need for CVE ecosystem decentralization in response to NVD challenges. This briefing explores global alternatives and pathways toward a more resilient, distributed vulnerability intelligence infrastructure that can better serve the security community worldwide.</p>
+                            <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+                                <a href="https://blackhat.com/eu-25/briefings/schedule/#the-post-nvd-era-a-call-for-global-cve-decentralization-49430" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Event Site</a>
+                            </div>
+                        </div>
+
+                        <!-- BSides Munich 2025 -->
+                        <div class="talk-card" id="talk-bsides-munich-2025">
+                            <h4>Navigating the Volatile Vulnerability Landscape</h4>
                             <div class="talk-event-info">
                                 <h4>BSides Munich</h4>
                                 <div class="talk-location"><i class="fas fa-map-marker-alt"></i> The Westin Grand Munich, München, Germany</div>
@@ -528,7 +577,8 @@
                             </div>
                             <p>The global vulnerability disclosure ecosystem is shifting under funding pressure and enrichment delays. This session examines CVE program stress and NVD backlog impact, then evaluates emerging alternative intelligence sources (e.g. ENISA and independent databases) with practical strategies to diversify inputs, prioritize beyond raw scores, and build a more resilient AppSec workflow.</p>
                             <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
-                                <a href="https://2025.bsidesmunich.org/" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Event Site</a>
+                                <a href="Talks/Navigating%20the%20Volatile%20Vulnerability%20Landscape%20-%20BSides%20Munich.pdf" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Download Slides (PDF)</a>
+                                <a href="https://2025.bsidesmunich.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.875rem;">Event Site</a>
                             </div>
                         </div>
 
