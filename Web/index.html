@@ -97,6 +97,40 @@
             "@graph": [
                 {
                     "@type": "Event",
+                    "@id": "https://rogolabs.net/#event-bsides-galway-2026",
+                    "name": "Open Source Intelligence on a Budget: Building Your Own Vulnerability Radar",
+                    "startDate": "2026-02-21",
+                    "eventStatus": "https://schema.org/EventCompleted",
+                    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+                    "location": {
+                        "@type": "Place",
+                        "name": "BSides Galway 2026",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Galway",
+                            "addressCountry": "IE"
+                        }
+                    },
+                    "performer": { "@id": "https://rogolabs.net/#jerry" },
+                    "workFeatured": {
+                        "@type": "CreativeWork",
+                        "name": "BSides Galway - Open Source Intelligence on a Budget",
+                        "fileFormat": "application/pdf",
+                        "contentUrl": "https://rogolabs.net/Talks/BSides-Galway-Open-Source-Intelligence.pdf",
+                        "url": "https://rogolabs.net/Talks/BSides-Galway-Open-Source-Intelligence.pdf"
+                    },
+                    "description": "A builder session showing how to create a self-sustaining vulnerability radar using open-source tooling and architecture patterns behind the RogoLabs suite.",
+                    "about": [
+                        "Open Source Intelligence",
+                        "Vulnerability Intelligence",
+                        "Cybersecurity",
+                        "Threat Intelligence",
+                        "Security Engineering"
+                    ],
+                    "url": "https://bsidesgalway.com/session-list/"
+                },
+                {
+                    "@type": "Event",
                     "@id": "https://rogolabs.net/#event-blackhat-eu-2025",
                     "name": "The Post-NVD Era: A Call for Global CVE Decentralization",
                     "startDate": "2025-12-08",
@@ -453,10 +487,10 @@
                             <div class="project-content">
                                 <h3>CVE.ICU</h3>
                                 <p><strong>Tired of drowning in CVE data?</strong> Transform vulnerability chaos into visual intelligence with interactive charts that reveal the patterns that matter. Our real-time dashboard, updated every 4 hours from the NVD, cuts through the noise to show you what's actually happening in the threat landscape.</p>
-                                <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
-                                    <div>✓ Spot emerging trends instantly</div>
-                                    <div>✓ Filter out the noise</div>
-                                    <div>✓ Make data-driven decisions</div>
+                                <div class="project-benefits">
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Spot emerging trends instantly</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Filter out the noise</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Make data-driven decisions</span></div>
                                 </div>
                                 <div class="project-links">
                                     <a href="https://cve.icu" target="_blank" class="btn" style="text-align: center;">See CVE Patterns Now</a>
@@ -470,14 +504,31 @@
                             <div class="project-content">
                                 <h3>PatchThis.app</h3>
                                 <p><strong>Stop playing patch roulette.</strong> Automatically prioritize critical patches based on actual risk to your systems, not just CVSS scores. Our proven approach dramatically reduces patch workload while maintaining complete security coverage.</p>
-                                <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
-                                    <div>✓ Risk-based prioritization</div>
-                                    <div>✓ Reduced patching overhead</div>
-                                    <div>✓ Focus on real threats</div>
+                                <div class="project-benefits">
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Risk-based prioritization</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Reduced patching overhead</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Focus on real threats</span></div>
                                 </div>
                                 <div class="project-links">
                                     <a href="https://patchthis.app" target="_blank" class="btn" style="text-align: center;">End Patch Chaos Now</a>
                                     <a href="https://github.com/jgamblin/patchthisapp" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- VulnRadar -->
+                        <div class="project-card">
+                            <div class="project-content">
+                                <h3>VulnRadar</h3>
+                                <p><strong>Your personal vulnerability intelligence radar — fork, configure, and go.</strong> GitHub-native CVE monitoring that matches your stack via a watchlist and produces a clean Markdown dashboard + issues.</p>
+                                <div class="project-benefits">
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Runs on GitHub Actions</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Enriched with KEV/EPSS/NVD/PatchThis</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Optional chat notifications</span></div>
+                                </div>
+                                <div class="project-links">
+                                    <a href="https://github.com/RogoLabs/VulnRadar" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center;">View on GitHub</a>
+                                    <a href="https://github.com/RogoLabs/VulnRadar-Demo" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>Live Demo</a>
                                 </div>
                             </div>
                         </div>
@@ -487,10 +538,10 @@
                             <div class="project-content">
                                 <h3>CVEforecast</h3>
                                 <p><strong>See tomorrow's vulnerabilities today.</strong> Advanced predictive analytics that forecast vulnerability trends and emerging threat patterns. Stay ahead of the curve with machine learning-powered insights that help you prepare for what's coming next in the threat landscape.</p>
-                                <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
-                                    <div>✓ Predictive threat intelligence</div>
-                                    <div>✓ Early warning system</div>
-                                    <div>✓ Strategic security planning</div>
+                                <div class="project-benefits">
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Predictive threat intelligence</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Early warning system</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Strategic security planning</span></div>
                                 </div>
                                 <div class="project-links">
                                     <a href="https://cveforecast.org" target="_blank" class="btn" style="text-align: center;">Forecast Future Threats</a>
@@ -504,10 +555,10 @@
                             <div class="project-content">
                                 <h3>CNA Scorecard</h3>
                                 <p><strong>Not all CVE sources are created equal.</strong> Get data-driven quality ratings for every CVE Numbering Authority so you can focus on reliable vulnerability intelligence and stop wasting time on inconsistent, low-quality reports.</p>
-                                <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
-                                    <div>✓ Trust verified sources</div>
-                                    <div>✓ Avoid poor-quality data</div>
-                                    <div>✓ Streamline intelligence workflows</div>
+                                <div class="project-benefits">
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Trust verified sources</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Avoid poor-quality data</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Streamline intelligence workflows</span></div>
                                 </div>
                                 <div class="project-links">
                                     <a href="https://cnascorecard.org" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center;">Check CNA Quality Now</a>
@@ -521,10 +572,10 @@
                             <div class="project-content">
                                 <h3>CVE Updates</h3>
                                 <p><strong>Track CVE update patterns and maintenance trends.</strong> Automated analysis of 300K+ CVE records revealing update frequencies, historical trends, and the most actively maintained vulnerabilities. Updated every 4 hours with interactive visualizations and comprehensive statistics.</p>
-                                <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
-                                    <div>✓ Update pattern insights</div>
-                                    <div>✓ Historical trend analysis</div>
-                                    <div>✓ Automated reporting</div>
+                                <div class="project-benefits">
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Update pattern insights</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Historical trend analysis</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Automated reporting</span></div>
                                 </div>
                                 <div class="project-links">
                                     <a href="https://rogolabs.github.io/CVE-Updates/" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center;">View Update Analysis</a>
@@ -538,10 +589,10 @@
                             <div class="project-content">
                                 <h3>CNAPulse</h3>
                                 <p><strong>Monitor all 512 CVE Numbering Authorities.</strong> CNAPulse tracks publishing activity across every registered CNA, comparing 30-day activity against 12-month baselines to identify growth, decline, and inactivity patterns. Updated every 3 hours with searchable, sortable dashboards.</p>
-                                <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
-                                    <div>✓ All 512 official CNAs tracked</div>
-                                    <div>✓ Growth, decline & inactivity detection</div>
-                                    <div>✓ Updated 8x daily via automation</div>
+                                <div class="project-benefits">
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>All 512 official CNAs tracked</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Growth, decline & inactivity detection</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Updated 8x daily via automation</span></div>
                                 </div>
                                 <div class="project-links">
                                     <a href="https://cnapulse.org" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center;">View CNA Activity</a>
@@ -555,10 +606,10 @@
                             <div class="project-content">
                                 <h3>CVE.ICU Splunk TA</h3>
                                 <p><strong>Bring CVE intelligence directly into Splunk.</strong> A high-performance Technology Add-on that ingests the complete CVE List V5 database in minutes. Features bulk downloads, hourly delta updates, and advanced risk scoring with CISA KEV and EPSS intelligence for enterprise vulnerability management.</p>
-                                <div style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1.5rem; line-height: 1.8;">
-                                    <div>✓ 300K+ CVEs ingested in minutes</div>
-                                    <div>✓ EPSS & CISA KEV integration</div>
-                                    <div>✓ Splunk Cloud compatible</div>
+                                <div class="project-benefits">
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>300K+ CVEs ingested in minutes</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>EPSS & CISA KEV integration</span></div>
+                                    <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Splunk Cloud compatible</span></div>
                                 </div>
                                 <div class="project-links">
                                     <a href="https://splunkbase.splunk.com/app/8395" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center;">Get on Splunkbase</a>
@@ -607,6 +658,7 @@
                             </div>
                             <p>You don't need a six-figure budget to possess world-class threat intelligence. In this builder session, I open the hood on the technical "secret sauce" behind the RogoLabs suite of open-source vulnerability tracking tools. Designed for security engineers and researchers tired of black-box intelligence feeds, we'll move beyond theory and look at the actual code and architecture required to build a self-sustaining vulnerability radar.</p>
                             <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+                                <a href="Talks/BSides-Galway-Open-Source-Intelligence.pdf" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Download Slides (PDF)</a>
                                 <a href="https://bsidesgalway.com/session-list/" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Event Site</a>
                             </div>
                         </div>
