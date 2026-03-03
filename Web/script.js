@@ -46,8 +46,7 @@ class DevModeHelper {
         console.log(`Protocol: ${protocol}`);
         console.log(`Hostname: ${hostname}`);
         console.log(`Port: ${port || 'default'}`);
-        console.log(`Service Worker Support: ${isServiceWorkerSupported() ? '✅' : '❌'}`);
-        console.log(`PWA Features: ${protocol === 'https:' || hostname === 'localhost' ? '✅' : '❌'}`);
+        console.log(`Service Worker Support: ${'serviceWorker' in navigator ? '✅' : '❌'}`);
         
         if (protocol === 'file:') {
             console.warn('📝 Tip: Use a local server for full functionality. See LOCAL_DEV.md');
@@ -61,7 +60,6 @@ class DevModeHelper {
         const info = {
             'Environment': window.location.protocol === 'file:' ? 'Local File' : 'HTTP Server',
             'Service Worker': 'serviceWorker' in navigator ? 'Supported' : 'Not Supported',
-            'SW Registered': isServiceWorkerSupported() ? 'Yes' : 'No (protocol limitation)',
             'Screen Size': `${window.innerWidth} x ${window.innerHeight}`,
             'User Agent': navigator.userAgent.split(' ').slice(-2).join(' '),
             'Theme': document.documentElement.getAttribute('data-theme') || 'system'
@@ -677,30 +675,3 @@ class App {
 
 // Initialize the application
 new App();
-
-// Service Worker registration for PWA capabilities
-// Only register if we're on a supported protocol (https or localhost)
-if ('serviceWorker' in navigator && isServiceWorkerSupported()) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-            .then((registration) => {
-                console.log('✅ Service Worker registered successfully:', registration);
-            })
-            .catch((registrationError) => {
-                console.warn('⚠️ Service Worker registration failed:', registrationError.message);
-            });
-    });
-} else if ('serviceWorker' in navigator) {
-    console.info('ℹ️ Service Worker not registered: unsupported protocol (file://). This is normal for local development.');
-} else {
-    console.info('ℹ️ Service Worker not supported in this browser.');
-}
-
-function isServiceWorkerSupported() {
-    // Service workers only work on HTTPS, localhost, or 127.0.0.1
-    const { protocol, hostname } = window.location;
-    return protocol === 'https:' || 
-           hostname === 'localhost' || 
-           hostname === '127.0.0.1' || 
-           hostname === '[::1]';
-}

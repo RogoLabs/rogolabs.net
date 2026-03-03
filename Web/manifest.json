@@ -52,28 +52,6 @@
       "sizes": "384x384",
       "type": "image/png",
       "purpose": "maskable any"
-    },
-    {
-      "src": "icons/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable any"
-    }
-  ],
-  "screenshots": [
-    {
-      "src": "screenshots/desktop.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "RogoLabs Desktop View"
-    },
-    {
-      "src": "screenshots/mobile.png",
-      "sizes": "390x844",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "RogoLabs Mobile View"
     }
   ],
   "shortcuts": [
@@ -81,25 +59,13 @@
       "name": "View Projects",
       "short_name": "Projects",
       "description": "Browse vulnerability intelligence tools",
-      "url": "/#projects",
-      "icons": [
-        {
-          "src": "icons/projects-icon.png",
-          "sizes": "96x96"
-        }
-      ]
+      "url": "/#projects"
     },
     {
       "name": "Contact",
       "short_name": "Contact",
       "description": "Get in touch with Jerry Gamblin",
-      "url": "/#contact",
-      "icons": [
-        {
-          "src": "icons/contact-icon.png",
-          "sizes": "96x96"
-        }
-      ]
+      "url": "/#contact"
     }
   ]
 }
