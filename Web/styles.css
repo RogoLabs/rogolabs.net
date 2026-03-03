@@ -22,11 +22,13 @@
 }
 
 [data-theme="dark"] {
+    --primary: #60a5fa;
+    --primary-dark: #3b82f6;
     --bg-primary: #0f172a;
     --bg-secondary: #1e293b;
     --bg-tertiary: #334155;
     --text-primary: #f1f5f9;
-    --text-secondary: #94a3b8;
+    --text-secondary: #cbd5e1;
     --border-color: #475569;
     --shadow: rgba(0, 0, 0, 0.3);
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
@@ -37,7 +39,7 @@
     /* Update legacy color variables for dark mode */
     --dark: #f1f5f9;
     --secondary: #f1f5f9;
-    --gray: #94a3b8;
+    --gray: #cbd5e1;
     --light-gray: #475569;
 }
 
@@ -131,6 +133,8 @@ nav {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--text-primary);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
 }
 
 /* Hero Section */
@@ -297,10 +301,6 @@ section {
     gap: 2rem;
 }
 
-.projects-grid {
-    display: none; /* Always use carousel now */
-}
-
 /* Carousel navigation */
 .carousel-nav {
     position: absolute;
@@ -366,10 +366,12 @@ section {
 }
 
 .carousel-dot {
-    width: 12px;
-    height: 12px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background: var(--border-color);
+    border: none;
+    padding: 0;
     cursor: pointer;
     transition: background 0.3s;
 }
@@ -518,87 +520,6 @@ section {
     gap: 2rem;
 }
 
-.speaking-grid {
-    display: none; /* Always use carousel now */
-}
-
-/* Speaking carousel navigation - reuse project carousel styles */
-.speaking-carousel .carousel-nav {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 0;
-    pointer-events: none;
-    z-index: 10;
-}
-
-.speaking-carousel .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--text-primary);
-    transition: all 0.3s;
-    box-shadow: var(--shadow-lg);
-    pointer-events: auto;
-}
-
-.speaking-carousel .carousel-btn:hover {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.speaking-carousel .carousel-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-.speaking-carousel .carousel-btn:disabled:hover {
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    border-color: var(--border-color);
-    transform: translateY(-50%) scale(1);
-}
-
-.speaking-carousel .carousel-btn.prev {
-    left: -70px;
-}
-
-.speaking-carousel .carousel-btn.next {
-    right: -70px;
-}
-
-.speaking-carousel .carousel-dots {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.speaking-carousel .carousel-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--border-color);
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.speaking-carousel .carousel-dot.active {
-    background: var(--primary);
-}
-
 /* Card sizing for speaking section */
 .talk-card {
     flex: 0 0 calc(33.333% - 1.33rem); /* 3 cards with gap */
@@ -611,14 +532,6 @@ section {
         flex: 0 0 calc(50% - 1rem); /* 2 cards on medium screens */
         min-width: 280px;
     }
-
-    .speaking-carousel .carousel-btn.prev {
-        left: -60px;
-    }
-
-    .speaking-carousel .carousel-btn.next {
-        right: -60px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -626,32 +539,10 @@ section {
         flex: 0 0 calc(100% - 2rem); /* 1 card on small screens */
         min-width: 260px;
     }
-
-    .speaking-carousel .carousel-btn {
-        width: 40px;
-        height: 40px;
-    }
-
-    .speaking-carousel .carousel-btn.prev {
-        left: -50px;
-    }
-
-    .speaking-carousel .carousel-btn.next {
-        right: -50px;
-    }
-}
-
-@media (max-width: 480px) {
-    .speaking-carousel .carousel-btn.prev {
-        left: -45px;
-    }
-
-    .speaking-carousel .carousel-btn.next {
-        right: -45px;
-    }
 }
 
 .talk-card {
+    position: relative;
     background: var(--bg-primary);
     border-radius: 0.5rem;
     padding: 2rem;
@@ -664,44 +555,46 @@ section {
     transform: translateY(-5px);
 }
 
-        .talk-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.25rem;
-            color: var(--text-primary);
-            line-height: 1.3;
-        }
-        
-        .talk-event-info {
-            margin-bottom: 1rem;
-        }
-        
-        .talk-card .talk-event-info h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .talk-location, .talk-date {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .talk-location i, .talk-date i {
-            color: var(--primary);
-        }
-        
-        .talk-card h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-            line-height: 1.3;
-            font-weight: 600;
-        }/* Contact Section */
+.talk-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.talk-event-info {
+    margin-bottom: 1rem;
+}
+
+.talk-card .talk-event-info h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.talk-location, .talk-date {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.talk-location i, .talk-date i {
+    color: var(--primary);
+}
+
+.talk-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+/* Contact Section */
 .contact {
     background-color: var(--bg-secondary);
     text-align: center;
@@ -780,6 +673,103 @@ footer {
 
 
 
+/* Utility classes (replacing inline styles) */
+.flex-row { display: flex; gap: 0.5rem; }
+.flex-col { display: flex; flex-direction: column; gap: 0.5rem; }
+.mt-1 { margin-top: 1rem; }
+.mt-auto { margin-top: auto; }
+.text-sm { font-size: 0.875rem; }
+.text-center { text-align: center; }
+.icon-left { margin-right: 0.5rem; }
+
+/* Skip link (visible on focus) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--primary);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+/* Header controls wrapper (theme toggle + mobile menu) */
+.header-controls {
+    display: flex;
+    align-items: center;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s;
+}
+
+/* Hero CTA buttons wrapper */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Highlighted strong text */
+.text-highlight {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* Author signature line */
+.signature {
+    font-style: italic;
+    color: var(--primary);
+    margin-top: 2rem;
+}
+
+/* Center-align project link buttons */
+.project-links .btn {
+    text-align: center;
+}
+
+/* Talk card action buttons row */
+.talk-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* Small button variant for talk action links */
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+/* Placeholder/CTA talk card */
+.talk-card-placeholder {
+    background-color: var(--bg-secondary);
+}
+
+/* Contact CTA button spacing */
+.mt-1-5 {
+    margin-top: 1.5rem;
+}
+
+/* Footer logo */
+.footer-logo {
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
 /* Screen reader only content */
 .sr-only {
     position: absolute;
@@ -824,27 +814,6 @@ footer {
 .animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* Enhanced button interactions */
-.btn {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
-}
-
-.btn:hover::before {
-    left: 100%;
 }
 
 /* Loading spinner */

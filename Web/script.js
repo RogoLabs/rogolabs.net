@@ -1,3 +1,11 @@
+function debounce(fn, delay = 150) {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), delay);
+    };
+}
+
 // Development mode detection and helpers
 class DevModeHelper {
     constructor() {
@@ -38,8 +46,7 @@ class DevModeHelper {
         console.log(`Protocol: ${protocol}`);
         console.log(`Hostname: ${hostname}`);
         console.log(`Port: ${port || 'default'}`);
-        console.log(`Service Worker Support: ${isServiceWorkerSupported() ? '✅' : '❌'}`);
-        console.log(`PWA Features: ${protocol === 'https:' || hostname === 'localhost' ? '✅' : '❌'}`);
+        console.log(`Service Worker Support: ${'serviceWorker' in navigator ? '✅' : '❌'}`);
         
         if (protocol === 'file:') {
             console.warn('📝 Tip: Use a local server for full functionality. See LOCAL_DEV.md');
@@ -53,7 +60,6 @@ class DevModeHelper {
         const info = {
             'Environment': window.location.protocol === 'file:' ? 'Local File' : 'HTTP Server',
             'Service Worker': 'serviceWorker' in navigator ? 'Supported' : 'Not Supported',
-            'SW Registered': isServiceWorkerSupported() ? 'Yes' : 'No (protocol limitation)',
             'Screen Size': `${window.innerWidth} x ${window.innerHeight}`,
             'User Agent': navigator.userAgent.split(' ').slice(-2).join(' '),
             'Theme': document.documentElement.getAttribute('data-theme') || 'system'
@@ -303,17 +309,22 @@ class IntersectionObserverManager {
             const perfObserver = new PerformanceObserver((list) => {
                 list.getEntries().forEach((entry) => {
                     if (entry.entryType === 'largest-contentful-paint') {
-                        // Only log if LCP is concerning (> 2.5s is poor)
                         const lcpTime = entry.startTime;
-                        if (lcpTime > 2500) {
-                            console.warn(`⚠️ LCP is slow: ${lcpTime.toFixed(1)}ms (should be < 2.5s)`);
-                        } else {
-                            console.log(`📊 LCP: ${lcpTime.toFixed(1)}ms`);
+                        // Only log in dev mode
+                        const isDev = window.location.hostname === 'localhost' ||
+                                      window.location.hostname === '127.0.0.1' ||
+                                      window.location.protocol === 'file:';
+                        if (isDev) {
+                            if (lcpTime > 2500) {
+                                console.warn(`⚠️ LCP is slow: ${lcpTime.toFixed(1)}ms`);
+                            } else {
+                                console.log(`📊 LCP: ${lcpTime.toFixed(1)}ms`);
+                            }
                         }
                     }
                 });
             });
-            
+
             try {
                 perfObserver.observe({ entryTypes: ['largest-contentful-paint'] });
             } catch (e) {
@@ -374,37 +385,38 @@ class LinkManager {
     }
 }
 
-class ProjectsCarousel {
-    constructor() {
-        this.track = document.getElementById('projectsTrack');
-        this.prevBtn = document.getElementById('prevBtn');
-        this.nextBtn = document.getElementById('nextBtn');
-        this.dotsContainer = document.getElementById('carouselDots');
+class BaseCarousel {
+    constructor({ trackId, prevBtnId, nextBtnId, dotsContainerId, itemLabel = 'slide' }) {
+        this.track = document.getElementById(trackId);
+        this.prevBtn = document.getElementById(prevBtnId);
+        this.nextBtn = document.getElementById(nextBtnId);
+        this.dotsContainer = document.getElementById(dotsContainerId);
+        this.itemLabel = itemLabel;
         this.currentIndex = 0;
-        this.totalProjects = 0;
+        this.totalItems = 0;
         this.cardsPerView = 3;
-        
+
         if (this.track) {
             this.init();
         }
     }
-    
+
     init() {
-        this.totalProjects = this.track.children.length;
+        this.totalItems = this.track.children.length;
         this.updateCardsPerView();
         this.createDots();
         this.bindEvents();
         this.updateCarousel();
         this.setupSwipeGestures();
-        
+
         // Update on resize
-        window.addEventListener('resize', () => {
+        window.addEventListener('resize', debounce(() => {
             this.updateCardsPerView();
             this.updateCarousel();
             this.createDots();
-        });
+        }));
     }
-    
+
     updateCardsPerView() {
         const width = window.innerWidth;
         if (width <= 768) {
@@ -415,30 +427,156 @@ class ProjectsCarousel {
             this.cardsPerView = 3;
         }
     }
-    
+
     createDots() {
         if (!this.dotsContainer) return;
-        
-        const maxSlides = Math.max(0, this.totalProjects - this.cardsPerView + 1);
-        this.dotsContainer.innerHTML = '';
-        
+
+        const maxSlides = Math.max(0, this.totalItems - this.cardsPerView + 1);
+        this.dotsContainer.replaceChildren();
+
         for (let i = 0; i < maxSlides; i++) {
             const dot = document.createElement('button');
             dot.className = 'carousel-dot';
-            dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+            dot.setAttribute('aria-label', `Go to ${this.itemLabel} ${i + 1}`);
             if (i === 0) dot.classList.add('active');
-            
+
             dot.addEventListener('click', () => this.goToSlide(i));
             this.dotsContainer.appendChild(dot);
         }
     }
-    
+
     bindEvents() {
         this.prevBtn?.addEventListener('click', () => this.previousSlide());
         this.nextBtn?.addEventListener('click', () => this.nextSlide());
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
+    }
+
+    setupSwipeGestures() {
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
+
+        const handleStart = (e) => {
+            isDragging = true;
+            startX = e.touches ? e.touches[0].clientX : e.clientX;
+            this.track.style.transition = 'none';
+        };
+
+        const handleMove = (e) => {
+            if (!isDragging) return;
+
+            e.preventDefault();
+            currentX = e.touches ? e.touches[0].clientX : e.clientX;
+            const diffX = currentX - startX;
+            const cardWidth = this.track.children[0].offsetWidth;
+            const gap = 32; // 2rem gap
+            const moveDistance = (cardWidth + gap) * this.currentIndex;
+
+            this.track.style.transform = `translateX(${-moveDistance + diffX}px)`;
+        };
+
+        const handleEnd = () => {
+            if (!isDragging) return;
+
+            isDragging = false;
+            this.track.style.transition = 'transform 0.5s ease';
+
+            const diffX = currentX - startX;
+            const threshold = 50;
+
+            if (Math.abs(diffX) > threshold) {
+                if (diffX > 0) {
+                    this.previousSlide();
+                } else {
+                    this.nextSlide();
+                }
+            } else {
+                this.updateCarousel();
+            }
+        };
+
+        // Touch events
+        this.track.addEventListener('touchstart', handleStart, { passive: true });
+        this.track.addEventListener('touchmove', handleMove, { passive: false });
+        this.track.addEventListener('touchend', handleEnd);
+
+        // Mouse events for desktop testing
+        this.track.addEventListener('mousedown', handleStart);
+        document.addEventListener('mousemove', handleMove);
+        document.addEventListener('mouseup', handleEnd);
+    }
+
+    previousSlide() {
+        if (this.currentIndex > 0) {
+            this.currentIndex--;
+            this.updateCarousel();
+        }
+    }
+
+    nextSlide() {
+        const maxIndex = Math.max(0, this.totalItems - this.cardsPerView);
+        if (this.currentIndex < maxIndex) {
+            this.currentIndex++;
+            this.updateCarousel();
+        }
+    }
+
+    goToSlide(index) {
+        const maxIndex = Math.max(0, this.totalItems - this.cardsPerView);
+        this.currentIndex = Math.min(index, maxIndex);
+        this.updateCarousel();
+    }
+
+    updateCarousel() {
+        if (!this.track) return;
+
+        // Calculate translation based on current index
+        const cardWidth = this.track.children[0]?.offsetWidth || 300;
+        const gap = 32; // 2rem gap
+        const translateX = -this.currentIndex * (cardWidth + gap);
+
+        this.track.style.transform = `translateX(${translateX}px)`;
+
+        // Update button states
+        this.updateButtons();
+        this.updateDots();
+    }
+
+    updateButtons() {
+        if (!this.prevBtn || !this.nextBtn) return;
+
+        const maxIndex = Math.max(0, this.totalItems - this.cardsPerView);
+
+        this.prevBtn.disabled = this.currentIndex <= 0;
+        this.nextBtn.disabled = this.currentIndex >= maxIndex;
+    }
+
+    updateDots() {
+        if (!this.dotsContainer) return;
+
+        const dots = this.dotsContainer.querySelectorAll('.carousel-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === this.currentIndex);
+        });
+    }
+}
+
+class ProjectsCarousel extends BaseCarousel {
+    constructor() {
+        super({
+            trackId: 'projectsTrack',
+            prevBtnId: 'prevBtn',
+            nextBtnId: 'nextBtn',
+            dotsContainerId: 'carouselDots',
+            itemLabel: 'slide'
+        });
+    }
+
+    bindEvents() {
+        super.bindEvents();
+
+        // Scope keyboard nav to the carousel section only
+        const container = this.track.closest('.projects-carousel');
+        container?.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') {
                 e.preventDefault();
                 this.previousSlide();
@@ -448,287 +586,32 @@ class ProjectsCarousel {
             }
         });
     }
-    
-    setupSwipeGestures() {
-        let startX = 0;
-        let currentX = 0;
-        let isDragging = false;
-        
-        const handleStart = (e) => {
-            isDragging = true;
-            startX = e.touches ? e.touches[0].clientX : e.clientX;
-            this.track.style.transition = 'none';
-        };
-        
-        const handleMove = (e) => {
-            if (!isDragging) return;
-            
-            e.preventDefault();
-            currentX = e.touches ? e.touches[0].clientX : e.clientX;
-            const diffX = currentX - startX;
-            const cardWidth = this.track.children[0].offsetWidth;
-            const gap = 32; // 2rem gap
-            const moveDistance = (cardWidth + gap) * this.currentIndex;
-            
-            this.track.style.transform = `translateX(${-moveDistance + diffX}px)`;
-        };
-        
-        const handleEnd = () => {
-            if (!isDragging) return;
-            
-            isDragging = false;
-            this.track.style.transition = 'transform 0.5s ease';
-            
-            const diffX = currentX - startX;
-            const threshold = 50;
-            
-            if (Math.abs(diffX) > threshold) {
-                if (diffX > 0) {
-                    this.previousSlide();
-                } else {
-                    this.nextSlide();
-                }
-            } else {
-                this.updateCarousel();
-            }
-        };
-        
-        // Touch events
-        this.track.addEventListener('touchstart', handleStart, { passive: true });
-        this.track.addEventListener('touchmove', handleMove, { passive: false });
-        this.track.addEventListener('touchend', handleEnd);
-        
-        // Mouse events for desktop testing
-        this.track.addEventListener('mousedown', handleStart);
-        document.addEventListener('mousemove', handleMove);
-        document.addEventListener('mouseup', handleEnd);
-    }
-    
-    previousSlide() {
-        if (this.currentIndex > 0) {
-            this.currentIndex--;
-            this.updateCarousel();
-        }
-    }
-    
-    nextSlide() {
-        const maxIndex = Math.max(0, this.totalProjects - this.cardsPerView);
-        if (this.currentIndex < maxIndex) {
-            this.currentIndex++;
-            this.updateCarousel();
-        }
-    }
-    
-    goToSlide(index) {
-        const maxIndex = Math.max(0, this.totalProjects - this.cardsPerView);
-        this.currentIndex = Math.min(index, maxIndex);
-        this.updateCarousel();
-    }
-    
-    updateCarousel() {
-        if (!this.track) return;
-        
-        // Calculate translation based on current index
-        const cardWidth = this.track.children[0]?.offsetWidth || 300;
-        const gap = 32; // 2rem gap
-        const translateX = -this.currentIndex * (cardWidth + gap);
-        
-        this.track.style.transform = `translateX(${translateX}px)`;
-        
-        // Update button states
-        this.updateButtons();
-        this.updateDots();
-    }
-    
-    updateButtons() {
-        if (!this.prevBtn || !this.nextBtn) return;
-        
-        const maxIndex = Math.max(0, this.totalProjects - this.cardsPerView);
-        
-        this.prevBtn.disabled = this.currentIndex <= 0;
-        this.nextBtn.disabled = this.currentIndex >= maxIndex;
-    }
-    
-    updateDots() {
-        if (!this.dotsContainer) return;
-        
-        const dots = this.dotsContainer.querySelectorAll('.carousel-dot');
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === this.currentIndex);
-        });
-    }
 }
 
-class SpeakingCarousel {
+class SpeakingCarousel extends BaseCarousel {
     constructor() {
-        this.track = document.getElementById('speakingTrack');
-        this.prevBtn = document.getElementById('speakingPrevBtn');
-        this.nextBtn = document.getElementById('speakingNextBtn');
-        this.dotsContainer = document.getElementById('speakingCarouselDots');
-        this.currentIndex = 0;
-        this.totalTalks = 0;
-        this.cardsPerView = 3;
-        
-        if (this.track) {
-            this.init();
-        }
-    }
-    
-    init() {
-        this.totalTalks = this.track.children.length;
-        this.updateCardsPerView();
-        this.createDots();
-        this.bindEvents();
-        this.updateCarousel();
-        this.setupSwipeGestures();
-        
-        // Update on resize
-        window.addEventListener('resize', () => {
-            this.updateCardsPerView();
-            this.updateCarousel();
-            this.createDots();
+        super({
+            trackId: 'speakingTrack',
+            prevBtnId: 'speakingPrevBtn',
+            nextBtnId: 'speakingNextBtn',
+            dotsContainerId: 'speakingCarouselDots',
+            itemLabel: 'talk'
         });
     }
-    
-    updateCardsPerView() {
-        const width = window.innerWidth;
-        if (width <= 768) {
-            this.cardsPerView = 1;
-        } else if (width <= 1024) {
-            this.cardsPerView = 2;
-        } else {
-            this.cardsPerView = 3;
-        }
-    }
-    
-    createDots() {
-        if (!this.dotsContainer) return;
-        
-        const maxSlides = Math.max(0, this.totalTalks - this.cardsPerView + 1);
-        this.dotsContainer.innerHTML = '';
-        
-        for (let i = 0; i < maxSlides; i++) {
-            const dot = document.createElement('button');
-            dot.className = 'carousel-dot';
-            dot.setAttribute('aria-label', `Go to talk ${i + 1}`);
-            if (i === 0) dot.classList.add('active');
-            
-            dot.addEventListener('click', () => this.goToSlide(i));
-            this.dotsContainer.appendChild(dot);
-        }
-    }
-    
+
     bindEvents() {
-        this.prevBtn?.addEventListener('click', () => this.previousSlide());
-        this.nextBtn?.addEventListener('click', () => this.nextSlide());
-    }
-    
-    setupSwipeGestures() {
-        let startX = 0;
-        let currentX = 0;
-        let isDragging = false;
-        
-        const handleStart = (e) => {
-            isDragging = true;
-            startX = e.touches ? e.touches[0].clientX : e.clientX;
-            this.track.style.transition = 'none';
-        };
-        
-        const handleMove = (e) => {
-            if (!isDragging) return;
-            
-            e.preventDefault();
-            currentX = e.touches ? e.touches[0].clientX : e.clientX;
-            const diffX = currentX - startX;
-            const cardWidth = this.track.children[0].offsetWidth;
-            const gap = 32; // 2rem gap
-            const moveDistance = (cardWidth + gap) * this.currentIndex;
-            
-            this.track.style.transform = `translateX(${-moveDistance + diffX}px)`;
-        };
-        
-        const handleEnd = () => {
-            if (!isDragging) return;
-            
-            isDragging = false;
-            this.track.style.transition = 'transform 0.5s ease';
-            
-            const diffX = currentX - startX;
-            const threshold = 50;
-            
-            if (Math.abs(diffX) > threshold) {
-                if (diffX > 0) {
-                    this.previousSlide();
-                } else {
-                    this.nextSlide();
-                }
-            } else {
-                this.updateCarousel();
+        super.bindEvents();
+
+        // Scope keyboard nav to the carousel section only
+        const container = this.track.closest('.speaking-carousel');
+        container?.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                this.previousSlide();
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                this.nextSlide();
             }
-        };
-        
-        // Touch events
-        this.track.addEventListener('touchstart', handleStart, { passive: true });
-        this.track.addEventListener('touchmove', handleMove, { passive: false });
-        this.track.addEventListener('touchend', handleEnd);
-        
-        // Mouse events for desktop testing
-        this.track.addEventListener('mousedown', handleStart);
-        document.addEventListener('mousemove', handleMove);
-        document.addEventListener('mouseup', handleEnd);
-    }
-    
-    previousSlide() {
-        if (this.currentIndex > 0) {
-            this.currentIndex--;
-            this.updateCarousel();
-        }
-    }
-    
-    nextSlide() {
-        const maxIndex = Math.max(0, this.totalTalks - this.cardsPerView);
-        if (this.currentIndex < maxIndex) {
-            this.currentIndex++;
-            this.updateCarousel();
-        }
-    }
-    
-    goToSlide(index) {
-        const maxIndex = Math.max(0, this.totalTalks - this.cardsPerView);
-        this.currentIndex = Math.min(index, maxIndex);
-        this.updateCarousel();
-    }
-    
-    updateCarousel() {
-        if (!this.track) return;
-        
-        // Calculate translation based on current index
-        const cardWidth = this.track.children[0]?.offsetWidth || 300;
-        const gap = 32; // 2rem gap
-        const translateX = -this.currentIndex * (cardWidth + gap);
-        
-        this.track.style.transform = `translateX(${translateX}px)`;
-        
-        // Update button states
-        this.updateButtons();
-        this.updateDots();
-    }
-    
-    updateButtons() {
-        if (!this.prevBtn || !this.nextBtn) return;
-        
-        const maxIndex = Math.max(0, this.totalTalks - this.cardsPerView);
-        
-        this.prevBtn.disabled = this.currentIndex <= 0;
-        this.nextBtn.disabled = this.currentIndex >= maxIndex;
-    }
-    
-    updateDots() {
-        if (!this.dotsContainer) return;
-        
-        const dots = this.dotsContainer.querySelectorAll('.carousel-dot');
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === this.currentIndex);
         });
     }
 }
@@ -767,9 +650,12 @@ class App {
                 track.appendChild(frag);
             })();
 
+            // Detect dev mode for conditional logging
+            const devHelper = new DevModeHelper();
+            this.modules.push(devHelper);
+
             // Initialize modules with better error handling
             const moduleClasses = [
-                { name: 'DevModeHelper', class: DevModeHelper },
                 { name: 'ThemeManager', class: ThemeManager },
                 { name: 'NavigationManager', class: NavigationManager },
                 { name: 'IntersectionObserverManager', class: IntersectionObserverManager },
@@ -782,13 +668,15 @@ class App {
                 try {
                     const instance = new ModuleClass();
                     this.modules.push(instance);
-                    console.log(`✅ ${name} initialized successfully`);
+                    if (devHelper.isDevMode) console.log(`✅ ${name} initialized successfully`);
                 } catch (error) {
                     console.error(`❌ Failed to initialize ${name}:`, error);
                 }
             });
-            
-            console.log(`🚀 Application initialized with ${this.modules.length}/${moduleClasses.length} modules`);
+
+            if (devHelper.isDevMode) {
+                console.log(`🚀 Application initialized with ${this.modules.length}/${moduleClasses.length + 1} modules`);
+            }
         } catch (error) {
             console.error('❌ Critical error during module initialization:', error);
         }
@@ -797,30 +685,3 @@ class App {
 
 // Initialize the application
 new App();
-
-// Service Worker registration for PWA capabilities
-// Only register if we're on a supported protocol (https or localhost)
-if ('serviceWorker' in navigator && isServiceWorkerSupported()) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-            .then((registration) => {
-                console.log('✅ Service Worker registered successfully:', registration);
-            })
-            .catch((registrationError) => {
-                console.warn('⚠️ Service Worker registration failed:', registrationError.message);
-            });
-    });
-} else if ('serviceWorker' in navigator) {
-    console.info('ℹ️ Service Worker not registered: unsupported protocol (file://). This is normal for local development.');
-} else {
-    console.info('ℹ️ Service Worker not supported in this browser.');
-}
-
-function isServiceWorkerSupported() {
-    // Service workers only work on HTTPS, localhost, or 127.0.0.1
-    const { protocol, hostname } = window.location;
-    return protocol === 'https:' || 
-           hostname === 'localhost' || 
-           hostname === '127.0.0.1' || 
-           hostname === '[::1]';
-}
