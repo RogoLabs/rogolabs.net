@@ -26,7 +26,7 @@
     --bg-secondary: #1e293b;
     --bg-tertiary: #334155;
     --text-primary: #f1f5f9;
-    --text-secondary: #94a3b8;
+    --text-secondary: #cbd5e1;
     --border-color: #475569;
     --shadow: rgba(0, 0, 0, 0.3);
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
@@ -37,7 +37,7 @@
     /* Update legacy color variables for dark mode */
     --dark: #f1f5f9;
     --secondary: #f1f5f9;
-    --gray: #94a3b8;
+    --gray: #cbd5e1;
     --light-gray: #475569;
 }
 
@@ -364,10 +364,12 @@ section {
 }
 
 .carousel-dot {
-    width: 12px;
-    height: 12px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     background: var(--border-color);
+    border: none;
+    padding: 0;
     cursor: pointer;
     transition: background 0.3s;
 }
