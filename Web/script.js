@@ -309,17 +309,22 @@ class IntersectionObserverManager {
             const perfObserver = new PerformanceObserver((list) => {
                 list.getEntries().forEach((entry) => {
                     if (entry.entryType === 'largest-contentful-paint') {
-                        // Only log if LCP is concerning (> 2.5s is poor)
                         const lcpTime = entry.startTime;
-                        if (lcpTime > 2500) {
-                            console.warn(`⚠️ LCP is slow: ${lcpTime.toFixed(1)}ms (should be < 2.5s)`);
-                        } else {
-                            console.log(`📊 LCP: ${lcpTime.toFixed(1)}ms`);
+                        // Only log in dev mode
+                        const isDev = window.location.hostname === 'localhost' ||
+                                      window.location.hostname === '127.0.0.1' ||
+                                      window.location.protocol === 'file:';
+                        if (isDev) {
+                            if (lcpTime > 2500) {
+                                console.warn(`⚠️ LCP is slow: ${lcpTime.toFixed(1)}ms`);
+                            } else {
+                                console.log(`📊 LCP: ${lcpTime.toFixed(1)}ms`);
+                            }
                         }
                     }
                 });
             });
-            
+
             try {
                 perfObserver.observe({ entryTypes: ['largest-contentful-paint'] });
             } catch (e) {
@@ -645,9 +650,12 @@ class App {
                 track.appendChild(frag);
             })();
 
+            // Detect dev mode for conditional logging
+            const devHelper = new DevModeHelper();
+            this.modules.push(devHelper);
+
             // Initialize modules with better error handling
             const moduleClasses = [
-                { name: 'DevModeHelper', class: DevModeHelper },
                 { name: 'ThemeManager', class: ThemeManager },
                 { name: 'NavigationManager', class: NavigationManager },
                 { name: 'IntersectionObserverManager', class: IntersectionObserverManager },
@@ -660,13 +668,15 @@ class App {
                 try {
                     const instance = new ModuleClass();
                     this.modules.push(instance);
-                    console.log(`✅ ${name} initialized successfully`);
+                    if (devHelper.isDevMode) console.log(`✅ ${name} initialized successfully`);
                 } catch (error) {
                     console.error(`❌ Failed to initialize ${name}:`, error);
                 }
             });
-            
-            console.log(`🚀 Application initialized with ${this.modules.length}/${moduleClasses.length} modules`);
+
+            if (devHelper.isDevMode) {
+                console.log(`🚀 Application initialized with ${this.modules.length}/${moduleClasses.length + 1} modules`);
+            }
         } catch (error) {
             console.error('❌ Critical error during module initialization:', error);
         }
