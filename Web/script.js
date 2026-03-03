@@ -571,8 +571,9 @@ class ProjectsCarousel extends BaseCarousel {
     bindEvents() {
         super.bindEvents();
 
-        // Keyboard navigation (only for projects carousel)
-        document.addEventListener('keydown', (e) => {
+        // Scope keyboard nav to the carousel section only
+        const container = this.track.closest('.projects-carousel');
+        container?.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft') {
                 e.preventDefault();
                 this.previousSlide();
@@ -592,6 +593,22 @@ class SpeakingCarousel extends BaseCarousel {
             nextBtnId: 'speakingNextBtn',
             dotsContainerId: 'speakingCarouselDots',
             itemLabel: 'talk'
+        });
+    }
+
+    bindEvents() {
+        super.bindEvents();
+
+        // Scope keyboard nav to the carousel section only
+        const container = this.track.closest('.speaking-carousel');
+        container?.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                this.previousSlide();
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                this.nextSlide();
+            }
         });
     }
 }
