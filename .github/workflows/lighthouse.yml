@@ -1,0 +1,29 @@
+name: Lighthouse Audit
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@0.14.x
+
+      - name: Serve site and run Lighthouse
+        run: |
+          npx serve Web -l 8080 &
+          sleep 3
+          lhci autorun --collect.url=http://localhost:8080 \
+            --assert.preset=lighthouse:recommended \
+            --assert.assertions.categories:performance=off \
+            --upload.target=temporary-public-storage
