@@ -297,10 +297,6 @@ section {
     gap: 2rem;
 }
 
-.projects-grid {
-    display: none; /* Always use carousel now */
-}
-
 /* Carousel navigation */
 .carousel-nav {
     position: absolute;
@@ -518,87 +514,6 @@ section {
     gap: 2rem;
 }
 
-.speaking-grid {
-    display: none; /* Always use carousel now */
-}
-
-/* Speaking carousel navigation - reuse project carousel styles */
-.speaking-carousel .carousel-nav {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 0;
-    pointer-events: none;
-    z-index: 10;
-}
-
-.speaking-carousel .carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--text-primary);
-    transition: all 0.3s;
-    box-shadow: var(--shadow-lg);
-    pointer-events: auto;
-}
-
-.speaking-carousel .carousel-btn:hover {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.speaking-carousel .carousel-btn:disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-.speaking-carousel .carousel-btn:disabled:hover {
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    border-color: var(--border-color);
-    transform: translateY(-50%) scale(1);
-}
-
-.speaking-carousel .carousel-btn.prev {
-    left: -70px;
-}
-
-.speaking-carousel .carousel-btn.next {
-    right: -70px;
-}
-
-.speaking-carousel .carousel-dots {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.speaking-carousel .carousel-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--border-color);
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.speaking-carousel .carousel-dot.active {
-    background: var(--primary);
-}
-
 /* Card sizing for speaking section */
 .talk-card {
     flex: 0 0 calc(33.333% - 1.33rem); /* 3 cards with gap */
@@ -611,43 +526,12 @@ section {
         flex: 0 0 calc(50% - 1rem); /* 2 cards on medium screens */
         min-width: 280px;
     }
-
-    .speaking-carousel .carousel-btn.prev {
-        left: -60px;
-    }
-
-    .speaking-carousel .carousel-btn.next {
-        right: -60px;
-    }
 }
 
 @media (max-width: 768px) {
     .talk-card {
         flex: 0 0 calc(100% - 2rem); /* 1 card on small screens */
         min-width: 260px;
-    }
-
-    .speaking-carousel .carousel-btn {
-        width: 40px;
-        height: 40px;
-    }
-
-    .speaking-carousel .carousel-btn.prev {
-        left: -50px;
-    }
-
-    .speaking-carousel .carousel-btn.next {
-        right: -50px;
-    }
-}
-
-@media (max-width: 480px) {
-    .speaking-carousel .carousel-btn.prev {
-        left: -45px;
-    }
-
-    .speaking-carousel .carousel-btn.next {
-        right: -45px;
     }
 }
 
@@ -824,27 +708,6 @@ footer {
 .animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* Enhanced button interactions */
-.btn {
-    position: relative;
-    overflow: hidden;
-}
-
-.btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s;
-}
-
-.btn:hover::before {
-    left: 100%;
 }
 
 /* Loading spinner */
