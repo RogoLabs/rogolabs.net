@@ -31,7 +31,8 @@ jobs:
         run: npm install -g html-validate
 
       - name: Validate HTML
-        run: npx html-validate Web/index.html || true
+        run: npx html-validate Web/index.html
+        continue-on-error: true
 
   deploy:
     needs: validate

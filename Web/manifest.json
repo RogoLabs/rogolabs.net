@@ -12,8 +12,8 @@
   "dir": "ltr",
   "icons": [
     {
-      "src": "icons/icon-72x72.png",
-      "sizes": "72x72",
+      "src": "icons/icon-70x70.png",
+      "sizes": "70x70",
       "type": "image/png",
       "purpose": "maskable any"
     },
