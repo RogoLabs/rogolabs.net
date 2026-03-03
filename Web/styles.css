@@ -131,6 +131,8 @@ nav {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--text-primary);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
 }
 
 /* Hero Section */
@@ -536,6 +538,7 @@ section {
 }
 
 .talk-card {
+    position: relative;
     background: var(--bg-primary);
     border-radius: 0.5rem;
     padding: 2rem;
@@ -663,6 +666,103 @@ footer {
 }
 
 
+
+/* Utility classes (replacing inline styles) */
+.flex-row { display: flex; gap: 0.5rem; }
+.flex-col { display: flex; flex-direction: column; gap: 0.5rem; }
+.mt-1 { margin-top: 1rem; }
+.mt-auto { margin-top: auto; }
+.text-sm { font-size: 0.875rem; }
+.text-center { text-align: center; }
+.icon-left { margin-right: 0.5rem; }
+
+/* Skip link (visible on focus) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--primary);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+/* Header controls wrapper (theme toggle + mobile menu) */
+.header-controls {
+    display: flex;
+    align-items: center;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.2s;
+}
+
+/* Hero CTA buttons wrapper */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Highlighted strong text */
+.text-highlight {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* Author signature line */
+.signature {
+    font-style: italic;
+    color: var(--primary);
+    margin-top: 2rem;
+}
+
+/* Center-align project link buttons */
+.project-links .btn {
+    text-align: center;
+}
+
+/* Talk card action buttons row */
+.talk-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* Small button variant for talk action links */
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+/* Placeholder/CTA talk card */
+.talk-card-placeholder {
+    background-color: var(--bg-secondary);
+}
+
+/* Contact CTA button spacing */
+.mt-1-5 {
+    margin-top: 1.5rem;
+}
+
+/* Footer logo */
+.footer-logo {
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
 
 /* Screen reader only content */
 .sr-only {

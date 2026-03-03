@@ -395,7 +395,7 @@
 </head>
 <body>
     <!-- Skip to content link for accessibility -->
-    <a href="#main" class="skip-link sr-only" style="position: absolute; top: -40px; left: 6px; background: var(--primary); color: white; padding: 8px; text-decoration: none; border-radius: 4px; z-index: 1000;">Skip to main content</a>
+    <a href="#main" class="skip-link sr-only">Skip to main content</a>
     
     <!-- Header -->
     <header>
@@ -409,11 +409,11 @@
                     <a href="https://jerrygamblin.com" target="_blank" rel="noopener noreferrer">Blog</a>
                     <a href="#contact">Contact</a>
                 </div>
-                <div style="display: flex; align-items: center;">
-                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" style="background: none; border: none; color: var(--text-primary); font-size: 1.25rem; cursor: pointer; padding: 0.5rem; margin-right: 0.5rem; border-radius: 0.25rem; transition: background-color 0.2s;">
+                <div class="header-controls">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
                         <i class="fas fa-moon" id="themeIcon"></i>
                     </button>
-                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false" style="display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-primary); padding: 0.5rem; border-radius: 0.25rem;">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
                         <i class="fas fa-bars" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -427,7 +427,7 @@
             <div class="container">
                 <h1>Vulnerability Insights That Matter</h1>
                 <p>Free, open-source vulnerability intelligence tools that cut through the noise and help security teams focus on what actually matters</p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <div class="hero-buttons">
                     <a href="#projects" class="btn">Stop CVE Chaos Now</a>
                     <a href="#contact" class="btn btn-outline">Get Strategic Insights</a>
                 </div>
@@ -448,13 +448,13 @@
                     <p>I transform overwhelming vulnerability data into clear, actionable intelligence that security teams can actually use. I believe the best security happens when practical tools are shared freely with the community—no vendor lock-in, no hidden costs, just effective solutions.</p>
                     
                     <h3>The Story Behind RogoLabs</h3>
-                    <p>I created RogoLabs to solve a fundamental problem: <strong style="color: var(--primary); font-weight: 700;">"How do we fix what matters?"</strong> The name is from the Latin verb <em>"rogo"</em> ("I ask"), the root of the word "interrogate." My mission is to <strong>relentlessly question vulnerability data</strong> to reveal what truly requires action.</p>
+                    <p>I created RogoLabs to solve a fundamental problem: <strong class="text-highlight">"How do we fix what matters?"</strong> The name is from the Latin verb <em>"rogo"</em> ("I ask"), the root of the word "interrogate." My mission is to <strong>relentlessly question vulnerability data</strong> to reveal what truly requires action.</p>
                     
                     <p>While others get lost in endless CVE feeds and alert fatigue, I build <strong>practical, open-source tools that cut through the noise</strong>. Every project I create is designed to question complex vulnerability data to <em>bring clarity to the chaos</em>, helping you prioritize what's important and protect what counts.</p>
                     
                     <p>My open-source approach is core to this mission. I believe that by asking the community to challenge and contribute to my work, I build stronger, more resilient tools for everyone, creating a virtuous cycle of improvement and innovation.</p>
                     
-                    <p class="signature" style="font-style: italic; color: var(--primary); margin-top: 2rem;">— Jerry Gamblin</p>
+                    <p class="signature">— Jerry Gamblin</p>
                 </div>
             </div>
         </div>
@@ -493,8 +493,8 @@
                                     <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Make data-driven decisions</span></div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://cve.icu" target="_blank" class="btn" style="text-align: center;">See CVE Patterns Now</a>
-                                    <a href="https://github.com/jgamblin/cve.icu" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
+                                    <a href="https://cve.icu" target="_blank" class="btn">See CVE Patterns Now</a>
+                                    <a href="https://github.com/jgamblin/cve.icu" target="_blank" class="btn btn-outline"><i class="fab fa-github icon-left"></i>View Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -510,8 +510,8 @@
                                     <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Focus on real threats</span></div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://patchthis.app" target="_blank" class="btn" style="text-align: center;">End Patch Chaos Now</a>
-                                    <a href="https://github.com/jgamblin/patchthisapp" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
+                                    <a href="https://patchthis.app" target="_blank" class="btn">End Patch Chaos Now</a>
+                                    <a href="https://github.com/jgamblin/patchthisapp" target="_blank" class="btn btn-outline"><i class="fab fa-github icon-left"></i>View Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -527,8 +527,8 @@
                                     <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Optional chat notifications</span></div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://github.com/RogoLabs/VulnRadar" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center;">View on GitHub</a>
-                                    <a href="https://github.com/RogoLabs/VulnRadar-Demo" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>Live Demo</a>
+                                    <a href="https://github.com/RogoLabs/VulnRadar" target="_blank" rel="noopener noreferrer" class="btn">View on GitHub</a>
+                                    <a href="https://github.com/RogoLabs/VulnRadar-Demo" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fab fa-github icon-left"></i>Live Demo</a>
                                 </div>
                             </div>
                         </div>
@@ -544,8 +544,8 @@
                                     <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Strategic security planning</span></div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://cveforecast.org" target="_blank" class="btn" style="text-align: center;">Forecast Future Threats</a>
-                                    <a href="https://github.com/rogolabs/CVEforecast" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
+                                    <a href="https://cveforecast.org" target="_blank" class="btn">Forecast Future Threats</a>
+                                    <a href="https://github.com/rogolabs/CVEforecast" target="_blank" class="btn btn-outline"><i class="fab fa-github icon-left"></i>View Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -561,8 +561,8 @@
                                     <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Streamline intelligence workflows</span></div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://cnascorecard.org" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center;">Check CNA Quality Now</a>
-                                    <a href="https://github.com/jgamblin/CNAScoreCard" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
+                                    <a href="https://cnascorecard.org" target="_blank" rel="noopener noreferrer" class="btn">Check CNA Quality Now</a>
+                                    <a href="https://github.com/jgamblin/CNAScoreCard" target="_blank" class="btn btn-outline"><i class="fab fa-github icon-left"></i>View Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -578,8 +578,8 @@
                                     <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Automated reporting</span></div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://rogolabs.github.io/CVE-Updates/" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center;">View Update Analysis</a>
-                                    <a href="https://github.com/RogoLabs/CVE-Updates" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
+                                    <a href="https://rogolabs.github.io/CVE-Updates/" target="_blank" rel="noopener noreferrer" class="btn">View Update Analysis</a>
+                                    <a href="https://github.com/RogoLabs/CVE-Updates" target="_blank" class="btn btn-outline"><i class="fab fa-github icon-left"></i>View Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -595,8 +595,8 @@
                                     <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Updated 8x daily via automation</span></div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://cnapulse.org" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center;">View CNA Activity</a>
-                                    <a href="https://github.com/RogoLabs/CNAPulse" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
+                                    <a href="https://cnapulse.org" target="_blank" rel="noopener noreferrer" class="btn">View CNA Activity</a>
+                                    <a href="https://github.com/RogoLabs/CNAPulse" target="_blank" class="btn btn-outline"><i class="fab fa-github icon-left"></i>View Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -612,8 +612,8 @@
                                     <div class="project-benefit"><span class="project-benefit-icon" aria-hidden="true">✓</span><span>Splunk Cloud compatible</span></div>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://splunkbase.splunk.com/app/8395" target="_blank" rel="noopener noreferrer" class="btn" style="text-align: center;">Get on Splunkbase</a>
-                                    <a href="https://github.com/RogoLabs/CVE.icu-Splunk" target="_blank" class="btn btn-outline" style="text-align: center;"><i class="fab fa-github" style="margin-right: 0.5rem;"></i>View Source Code</a>
+                                    <a href="https://splunkbase.splunk.com/app/8395" target="_blank" rel="noopener noreferrer" class="btn">Get on Splunkbase</a>
+                                    <a href="https://github.com/RogoLabs/CVE.icu-Splunk" target="_blank" class="btn btn-outline"><i class="fab fa-github icon-left"></i>View Source Code</a>
                                 </div>
                             </div>
                         </div>
@@ -649,7 +649,7 @@
                 <div class="speaking-track-container">
                     <div class="speaking-track" id="speakingTrack">
                         <!-- BSides Galway 2026 -->
-                        <div class="talk-card" id="talk-bsides-galway-2026" style="position:relative;">
+                        <div class="talk-card" id="talk-bsides-galway-2026">
                             <h4>Open Source Intelligence on a Budget: Building Your Own Vulnerability Radar</h4>
                             <div class="talk-event-info">
                                 <h4>BSides Galway</h4>
@@ -657,14 +657,14 @@
                                 <div class="talk-date"><i class="far fa-calendar"></i> <time datetime="2026-02-21">February 21, 2026</time></div>
                             </div>
                             <p>You don't need a six-figure budget to possess world-class threat intelligence. In this builder session, I open the hood on the technical "secret sauce" behind the RogoLabs suite of open-source vulnerability tracking tools. Designed for security engineers and researchers tired of black-box intelligence feeds, we'll move beyond theory and look at the actual code and architecture required to build a self-sustaining vulnerability radar.</p>
-                            <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
-                                <a href="Talks/BSides-Galway-Open-Source-Intelligence.pdf" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Download Slides (PDF)</a>
-                                <a href="https://bsidesgalway.com/session-list/" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Event Site</a>
+                            <div class="talk-actions">
+                                <a href="Talks/BSides-Galway-Open-Source-Intelligence.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Download Slides (PDF)</a>
+                                <a href="https://bsidesgalway.com/session-list/" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Event Site</a>
                             </div>
                         </div>
 
                         <!-- Black Hat Europe 2025 -->
-                        <div class="talk-card" id="talk-blackhat-eu-2025" style="position:relative;">
+                        <div class="talk-card" id="talk-blackhat-eu-2025">
                             <h4>The Post-NVD Era: A Call for Global CVE Decentralization</h4>
                             <div class="talk-event-info">
                                 <h4>Black Hat Europe</h4>
@@ -672,9 +672,9 @@
                                 <div class="talk-date"><i class="far fa-calendar"></i> <time datetime="2025-12-08">December 8-11, 2025</time></div>
                             </div>
                             <p>Examining the critical need for CVE ecosystem decentralization in response to NVD challenges. This briefing explores global alternatives and pathways toward a more resilient, distributed vulnerability intelligence infrastructure that can better serve the security community worldwide.</p>
-                            <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
-                                <a href="Talks/eu-25-Gamblin-ThePostNVDEra.pdf" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Download Slides (PDF)</a>
-                                <a href="https://blackhat.com/eu-25/briefings/schedule/#the-post-nvd-era-a-call-for-global-cve-decentralization-49430" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.875rem;">Event Site</a>
+                            <div class="talk-actions">
+                                <a href="Talks/eu-25-Gamblin-ThePostNVDEra.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Download Slides (PDF)</a>
+                                <a href="https://blackhat.com/eu-25/briefings/schedule/#the-post-nvd-era-a-call-for-global-cve-decentralization-49430" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Event Site</a>
                             </div>
                         </div>
 
@@ -687,9 +687,9 @@
                                 <div class="talk-date"><i class="far fa-calendar"></i> <time datetime="2025-11-17">November 17, 2025</time></div>
                             </div>
                             <p>The global vulnerability disclosure ecosystem is shifting under funding pressure and enrichment delays. This session examines CVE program stress and NVD backlog impact, then evaluates emerging alternative intelligence sources (e.g. ENISA and independent databases) with practical strategies to diversify inputs, prioritize beyond raw scores, and build a more resilient AppSec workflow.</p>
-                            <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
-                                <a href="Talks/Navigating%20the%20Volatile%20Vulnerability%20Landscape%20-%20BSides%20Munich.pdf" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Download Slides (PDF)</a>
-                                <a href="https://2025.bsidesmunich.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.875rem;">Event Site</a>
+                            <div class="talk-actions">
+                                <a href="Talks/Navigating%20the%20Volatile%20Vulnerability%20Landscape%20-%20BSides%20Munich.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Download Slides (PDF)</a>
+                                <a href="https://2025.bsidesmunich.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Event Site</a>
                             </div>
                         </div>
 
@@ -702,9 +702,9 @@
                                 <div class="talk-date"><i class="far fa-calendar"></i> <time datetime="2025-09-27">September 27, 2025</time></div>
                             </div>
                             <p>This presentation addresses the "Perfect Storm" challenging the vulnerability disclosure ecosystem, detailing the critical issues of the CVE funding crisis and the resultant NVD backlogs, where over 25,000 vulnerabilities face an average delay of 120+ days in enrichment and scoring.</p>
-                            <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
-                                <a href="Talks/Navigating-the-CVE-Crisis.pdf" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Download Slides (PDF)</a>
-                                <a href="https://www.bsidesnewcastle.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.875rem;">Event Site</a>
+                            <div class="talk-actions">
+                                <a href="Talks/Navigating-the-CVE-Crisis.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Download Slides (PDF)</a>
+                                <a href="https://www.bsidesnewcastle.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Event Site</a>
                             </div>
                         </div>
 
@@ -717,9 +717,9 @@
                                 <div class="talk-date"><i class="far fa-calendar"></i> <time datetime="2025-09-25">September 25, 2025</time></div>
                             </div>
                             <p>Introduces <strong>CVEforecast.org</strong>, a RogoLabs project focused on predictive CVE volume forecasting. It outlines the crisis of accelerating CVE growth and advocates shifting from reactive to predictive vulnerability management using time-series analysis. The platform employs an ensemble of statistical, machine learning, and deep learning models (plus CNA-specific forecasting) to deliver high-accuracy forward-looking vulnerability volume intelligence.</p>
-                            <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
-                                <a href="Talks/A-Time-Series-Approach-to-Predicting-CVE-Volume.pdf" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Download Slides (PDF)</a>
-                                <a href="https://www.first.org/events/colloquia/vuln4cast25/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.5rem 1rem; font-size:0.875rem;">Event Site</a>
+                            <div class="talk-actions">
+                                <a href="Talks/A-Time-Series-Approach-to-Predicting-CVE-Volume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Download Slides (PDF)</a>
+                                <a href="https://www.first.org/events/colloquia/vuln4cast25/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Event Site</a>
                             </div>
                         </div>
 
@@ -732,9 +732,9 @@
                                 <div class="talk-date"><i class="far fa-calendar"></i> <time datetime="2025-08-07">August 7–10, 2025</time></div>
                             </div>
                             <p>Our vulnerability disclosure ecosystem is strained. NVD backlogs persist while the CVE program, after a near-critical funding crisis, struggles with volume, assignment consistency, and timely enrichment. This session dissects these US program pressures and their downstream impact on AppSec teams, then examines emerging global alternatives and how to evaluate their strengths, limitations, and operational value.</p>
-                            <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
-                                <a href="Talks/The%20CVE%20Crisis_%20Navigating%20the%20Post-NVD%20Monolith%20Era.pdf" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Download Slides (PDF)</a>
-                                <a href="https://www.appsecvillage.com/events/dc-2025" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Event Site</a>
+                            <div class="talk-actions">
+                                <a href="Talks/The%20CVE%20Crisis_%20Navigating%20the%20Post-NVD%20Monolith%20Era.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Download Slides (PDF)</a>
+                                <a href="https://www.appsecvillage.com/events/dc-2025" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Event Site</a>
                             </div>
                         </div>
 
@@ -747,9 +747,9 @@
                                 <div class="talk-date"><i class="far fa-calendar"></i> <time datetime="2025-08-05">August 5, 2025</time></div>
                             </div>
                             <p>In the cybersecurity world, the Common Vulnerabilities and Exposures (CVE) system serves as a cornerstone for understanding and mitigating security threats. However, the process of contributing to and utilizing CVE data is often hindered by issues related to transparency. This talk explores how the CVE community struggles with openness, examining why participants—such as vulnerability researchers, vendors, and users—may sometimes fall short of full disclosure.</p>
-                            <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
-                                <a href="Talks/The%20Art%20of%20Concealment.pdf" target="_blank" rel="noopener noreferrer" class="btn" style="padding:0.5rem 1rem; font-size:0.875rem;">Download Slides (PDF)</a>
-                                <a href="https://bsideslv.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Event Site</a>
+                            <div class="talk-actions">
+                                <a href="Talks/The%20Art%20of%20Concealment.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Download Slides (PDF)</a>
+                                <a href="https://bsideslv.org/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Event Site</a>
                             </div>
                         </div>
 
@@ -762,8 +762,8 @@
                                 <div class="talk-date"><i class="far fa-calendar"></i> <time datetime="2025-04-07">April 7, 2025</time></div>
                             </div>
                             <p>Presentation examining real-world data on CNA performance gaps and actionable solutions to improve vulnerability reporting quality. Learn how poor-quality CVE data costs security teams time and how we can fix it.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="https://www.first.org/conference/vulncon2025/" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Event Site</a>
+                            <div class="talk-actions">
+                                <a href="https://www.first.org/conference/vulncon2025/" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Event Site</a>
                             </div>
                         </div>
 
@@ -776,14 +776,14 @@
                                 <div class="talk-date"><i class="far fa-calendar"></i> <time datetime="2024-08-11">August 11, 2024</time></div>
                             </div>
                             <p>Real-world case studies showing how the Exploit Prediction Scoring System (EPSS) can deliver a <strong>70% reduction in patch workload</strong> while maintaining security coverage. Practical implementation strategies that work.</p>
-                            <div style="margin-top: 1rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
-                                <a href="https://www.youtube.com/watch?v=Lgv11FoNa3w" target="_blank" rel="noopener noreferrer" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Watch The Talk</a>
-                                <a href="https://www.appsecvillage.com/events/dc-2025" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Event Site</a>
+                            <div class="talk-actions">
+                                <a href="https://www.youtube.com/watch?v=Lgv11FoNa3w" target="_blank" rel="noopener noreferrer" class="btn btn-sm">Watch The Talk</a>
+                                <a href="https://www.appsecvillage.com/events/dc-2025" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Event Site</a>
                             </div>
                         </div>
 
                         <!-- Placeholder for Future Talk -->
-                        <div class="talk-card" style="background-color: var(--bg-secondary);">
+                        <div class="talk-card talk-card-placeholder">
                             <h4>Ready to Level Up Your Event?</h4>
                             <div class="talk-event-info">
                                 <h4>Your Conference</h4>
@@ -791,8 +791,8 @@
                                 <div class="talk-date"><i class="far fa-calendar"></i> Your Date</div>
                             </div>
                             <p>Looking for practical vulnerability intelligence insights that your audience can actually implement? Let's discuss how proven strategies and real data can add serious value to your event.</p>
-                            <div style="margin-top: 1rem;">
-                                <a href="#contact" class="btn" style="padding: 0.5rem 1rem; font-size: 0.875rem;">Book Jerry as Speaker</a>
+                            <div class="talk-actions">
+                                <a href="#contact" class="btn btn-sm">Book Jerry as Speaker</a>
                             </div>
                         </div>
                     </div>
@@ -812,7 +812,7 @@
                 <p>Ready to transform your vulnerability management approach?<br>Let's connect.</p>
             </div>
             <p>Whether you're interested in collaborating on open-source projects, booking speaking engagements, or discussing how our tools can help your team cut through vulnerability chaos, I'd love to hear from you.</p>
-            <a href="mailto:jerry.gamblin@gmail.com" class="btn" style="margin-top: 1.5rem;">Start the Conversation</a>
+            <a href="mailto:jerry.gamblin@gmail.com" class="btn mt-1-5">Start the Conversation</a>
             
             <div class="social-links">
                 <a href="https://github.com/jgamblin" target="_blank" class="social-link" aria-label="GitHub">
@@ -835,7 +835,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <a href="#" class="logo" style="margin-bottom: 1.5rem; display: inline-block;"><span class="logo-rogo">Rogo</span><span class="logo-labs">Labs</span></a>
+                <a href="#" class="logo footer-logo"><span class="logo-rogo">Rogo</span><span class="logo-labs">Labs</span></a>
                 <div class="footer-links">
                     <a href="#about">About</a>
                     <a href="#projects">Projects</a>
