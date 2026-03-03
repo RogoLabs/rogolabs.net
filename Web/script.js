@@ -1,3 +1,11 @@
+function debounce(fn, delay = 150) {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), delay);
+    };
+}
+
 // Development mode detection and helpers
 class DevModeHelper {
     constructor() {
@@ -375,7 +383,7 @@ class LinkManager {
 }
 
 class BaseCarousel {
-    constructor({ trackId, prevBtnId, nextBtnId, dotsContainerId, itemLabel }) {
+    constructor({ trackId, prevBtnId, nextBtnId, dotsContainerId, itemLabel = 'slide' }) {
         this.track = document.getElementById(trackId);
         this.prevBtn = document.getElementById(prevBtnId);
         this.nextBtn = document.getElementById(nextBtnId);
@@ -399,11 +407,11 @@ class BaseCarousel {
         this.setupSwipeGestures();
 
         // Update on resize
-        window.addEventListener('resize', () => {
+        window.addEventListener('resize', debounce(() => {
             this.updateCardsPerView();
             this.updateCarousel();
             this.createDots();
-        });
+        }));
     }
 
     updateCardsPerView() {
