@@ -206,7 +206,6 @@ header nav {
 .hero-sub {
     font-size: 1.05rem;
     color: var(--text-secondary);
-    max-width: 520px;
     line-height: 1.65;
     margin-bottom: 2.25rem;
 }
