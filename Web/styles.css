@@ -89,6 +89,10 @@ body {
     top: 0;
 }
 
+[data-theme="dark"] .skip-link {
+    color: var(--bg-primary);
+}
+
 /* ============================================================
    NAVIGATION
    ============================================================ */
@@ -428,7 +432,7 @@ header nav {
 .talk-item::before {
     content: '';
     position: absolute;
-    left: -1.3rem;
+    left: calc(-1.75rem + 0.5rem + 5px);
     top: 0.35rem;
     width: 10px;
     height: 10px;
