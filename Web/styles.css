@@ -451,6 +451,14 @@ header nav {
     font-weight: 600;
 }
 
+a.talk-venue {
+    text-decoration: none;
+}
+
+a.talk-venue:hover {
+    text-decoration: underline;
+}
+
 .talk-title {
     font-size: 0.95rem;
     font-weight: 700;
