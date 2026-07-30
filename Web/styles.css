@@ -427,6 +427,35 @@ header nav {
     margin-bottom: 0;
 }
 
+/* Collapsed state: show only the most recent talks (see TalksToggle in script.js) */
+.timeline.is-collapsed .talk-item:nth-child(n+6) {
+    display: none;
+}
+
+.timeline.is-collapsed .talk-item:nth-child(5) {
+    margin-bottom: 0;
+}
+
+.talks-toggle {
+    display: inline-block;
+    margin-top: 1.75rem;
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.55rem 1.15rem;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+}
+
+.talks-toggle:hover {
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
+}
+
 .talk-item::before {
     content: '';
     position: absolute;

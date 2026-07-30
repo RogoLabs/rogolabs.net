@@ -335,6 +335,52 @@ class IntersectionObserverManager {
 }
 
 // Enhanced link behavior
+class TalksToggle {
+    constructor() {
+        this.collapsedCount = 5;
+        this.init();
+    }
+
+    init() {
+        this.timeline = document.getElementById('talks-timeline');
+        this.button = document.getElementById('talks-toggle');
+        if (!this.timeline || !this.button) return;
+
+        this.total = this.timeline.querySelectorAll('.talk-item').length;
+
+        // Nothing to hide, so leave the list expanded and the button out of the DOM flow
+        if (this.total <= this.collapsedCount) return;
+
+        this.button.hidden = false;
+        this.collapse();
+        this.button.addEventListener('click', () => this.toggle());
+    }
+
+    toggle() {
+        if (this.timeline.classList.contains('is-collapsed')) {
+            this.expand();
+        } else {
+            this.collapse();
+            // Collapsing shortens the page, so keep the button in view
+            if (this.button.getBoundingClientRect().top < 0) {
+                this.button.scrollIntoView({ block: 'center' });
+            }
+        }
+    }
+
+    collapse() {
+        this.timeline.classList.add('is-collapsed');
+        this.button.setAttribute('aria-expanded', 'false');
+        this.button.textContent = `Show all ${this.total} talks`;
+    }
+
+    expand() {
+        this.timeline.classList.remove('is-collapsed');
+        this.button.setAttribute('aria-expanded', 'true');
+        this.button.textContent = 'Show fewer talks';
+    }
+}
+
 class LinkManager {
     constructor() {
         this.init();
@@ -410,6 +456,7 @@ class App {
                 { name: 'NavigationManager', class: NavigationManager },
                 { name: 'IntersectionObserverManager', class: IntersectionObserverManager },
                 { name: 'LinkManager', class: LinkManager },
+                { name: 'TalksToggle', class: TalksToggle },
             ];
 
             moduleClasses.forEach(({ name, class: ModuleClass }) => {
