@@ -811,16 +811,6 @@ The new body starts immediately after line 515 (`</head>`). Replace from `<body>
                         </div>
                     </div>
 
-                    <div class="tool-card">
-                        <div class="tool-name">CVE.ICU Splunk TA</div>
-                        <div class="tool-desc">High-performance Splunk Technology Add-on ingesting the full CVE List V5 with hourly delta updates and EPSS and KEV enrichment for enterprise vulnerability management.</div>
-                        <span class="tool-tag">Splunk</span>
-                        <div class="tool-links">
-                            <a href="https://splunkbase.splunk.com/app/8395" target="_blank" rel="noopener noreferrer" class="tool-link">Splunkbase →</a>
-                            <a href="https://github.com/RogoLabs/CVE.icu-Splunk" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -1035,7 +1025,7 @@ Check each of the following:
 | Toolkit grid | 8 tool cards in 3-column grid |
 | Tool cards | Each has name, desc, tag, Visit + GitHub links |
 | Talks timeline | 8 entries, newest first (Feb 2026 at top) |
-| Slides links | Talk PDFs open (test 1–2: CVE.ICU Splunk TA has no PDF so skip) |
+| Slides links | Talk PDFs open (test 1–2) |
 | Recording link | DEF CON 32 has amber "▶ Recording" pill |
 | Footer | Copyright + 4 social links |
 

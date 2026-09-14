@@ -320,39 +320,83 @@ header nav {
 }
 
 /* ============================================================
-   TOOLKIT GRID
+   TOOLKIT (grouped rows)
    ============================================================ */
-.toolkit-grid {
+.tool-group {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+    padding: 1.75rem 0;
+    border-top: 1px solid var(--border-color);
 }
 
-.tool-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 1.25rem;
-    transition: box-shadow 0.15s, border-color 0.15s;
+.tool-group:first-child {
+    border-top: none;
+    padding-top: 0;
 }
 
-.tool-card:hover {
-    box-shadow: var(--shadow-md);
-    border-color: var(--primary);
+.tool-group:last-child {
+    padding-bottom: 0;
+}
+
+.tool-group-title {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+}
+
+.tool-group-sub {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.tool-list {
+    list-style: none;
+}
+
+.tool-row {
+    display: grid;
+    grid-template-columns: 10rem 1fr auto;
+    gap: 0.4rem 1.5rem;
+    align-items: baseline;
+    padding: 0.9rem 0;
+    border-top: 1px solid var(--bg-tertiary);
+}
+
+.tool-row:first-child {
+    border-top: none;
+    padding-top: 0.1rem;
+}
+
+.tool-row:last-child {
+    padding-bottom: 0;
+}
+
+.tool-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
 }
 
 .tool-name {
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 0.35rem;
+    transition: color 0.15s;
+}
+
+.tool-row:hover .tool-name {
+    color: var(--primary);
 }
 
 .tool-desc {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     color: var(--text-secondary);
-    line-height: 1.5;
-    margin-bottom: 0.75rem;
+    line-height: 1.55;
 }
 
 .tool-tag {
@@ -360,10 +404,10 @@ header nav {
     background: #eff6ff;
     color: var(--primary);
     font-size: 0.65rem;
-    padding: 0.2rem 0.5rem;
+    padding: 0.15rem 0.5rem;
     border-radius: 4px;
     font-weight: 500;
-    margin-bottom: 0.75rem;
+    white-space: nowrap;
 }
 
 [data-theme="dark"] .tool-tag {
@@ -373,7 +417,9 @@ header nav {
 .tool-links {
     display: flex;
     gap: 0.75rem;
-    align-items: center;
+    align-items: baseline;
+    justify-content: flex-end;
+    white-space: nowrap;
 }
 
 .tool-link {
@@ -397,6 +443,31 @@ header nav {
 
 .tool-link-gh:hover {
     color: var(--text-secondary);
+}
+
+@media (max-width: 900px) {
+    .tool-group {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .tool-row {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+    }
+
+    .tool-head {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .tool-links {
+        justify-content: flex-start;
+    }
 }
 
 /* ============================================================
@@ -591,19 +662,9 @@ footer {
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-@media (max-width: 900px) {
-    .toolkit-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 @media (max-width: 640px) {
     .hero {
         padding: 6rem 0 3.5rem;
-    }
-
-    .toolkit-grid {
-        grid-template-columns: 1fr;
     }
 
     .nav-links {

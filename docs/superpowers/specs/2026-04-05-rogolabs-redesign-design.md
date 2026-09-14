@@ -69,26 +69,29 @@ Placed immediately after the hero — establishes who is behind the work before 
 - Section label: `Open Source Toolkit`
 - Section title: `The RogoLabs Toolkit` (not "suite" — avoids commercial connotation)
 - Section subtitle: `One mission — make vulnerability intelligence actionable.` (avoids hardcoding a tool count that requires updating)
-- Layout: **3-column CSS grid**, auto-wrapping — new tools are added by inserting a new card, no other changes required
+- Layout: **grouped rows**. Tools are grouped by what they are for, each group with a short title and one-line subtitle. On wide screens the group heading sits in a left column and its tools are rows on the right; below 900px the heading stacks above the rows, and below 640px each row stacks to one column. New tools are added as a new row in the right group (flagship first within a group).
+- The JSON-LD `ItemList` in `<head>` must list tools in the same order as the page.
 
-Each tool card contains:
-- Tool name (bold)
+Each tool row contains:
+- Tool name (bold) with category tag beneath it
 - One-sentence description (factual, not marketing copy)
-- Category tag (e.g. Dashboard, Prioritization, Predictive, Quality, Monitoring, GitHub Action, Analytics, Splunk)
-- Links: `Visit →` (primary site) + `GitHub` (muted, secondary)
+- Category tag (e.g. Dashboard, Prioritization, Predictive, Quality, Monitoring, GitHub Action, Analytics, Trends)
+- Links: `Visit →` (primary site) + `GitHub` (muted, secondary). Tools with no site of their own show a single `GitHub →` link.
 
 Current tools (in display order):
 
-| Tool | URL | Category |
-|---|---|---|
-| CVE.ICU | cve.icu | Dashboard |
-| PatchThis.app | patchthis.app | Prioritization |
-| CVEforecast | cveforecast.org | Predictive |
-| CNA Scorecard | cnascorecard.org | Quality |
-| CNAPulse | cnapulse.org | Monitoring |
-| VulnRadar | github.com/RogoLabs/VulnRadar | GitHub Action |
-| CVE Updates | rogolabs.github.io/CVE-Updates/ | Analytics |
-| CVE.ICU Splunk TA | splunkbase.splunk.com/app/8395 | Splunk |
+| Group | Tool | URL | Category |
+|---|---|---|---|
+| The CVE List | CVE.ICU | cve.icu | Dashboard |
+| The CVE List | RBP Tracker | rbptracker.org | Monitoring |
+| The CVE List | CVE Updates | rogolabs.github.io/CVE-Updates/ | Analytics |
+| The CVE List | CVE Floodline | cvefloodline.org | Trends |
+| The CVE List | CVEforecast | cveforecast.org | Predictive |
+| CNAs and the Program | CNA Scorecard | cnascorecard.org | Quality |
+| CNAs and the Program | CNAPulse | cnapulse.org | Monitoring |
+| CNAs and the Program | SADP Tracker | rogolabs.github.io/SADP-Tracker/ | Monitoring |
+| For Defenders | PatchThis.app | patchthis.app | Prioritization |
+| For Defenders | VulnRadar | github.com/RogoLabs/VulnRadar | GitHub Action |
 
 ### 5. Talks
 

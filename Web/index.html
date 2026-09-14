@@ -516,13 +516,13 @@
                     "position": 2,
                     "item": {
                         "@type": "SoftwareApplication",
-                        "name": "PatchThis.app",
-                        "url": "https://patchthis.app",
+                        "name": "RBP Tracker",
+                        "url": "https://rbptracker.org",
                         "applicationCategory": "SecurityApplication",
                         "operatingSystem": "Web",
-                        "description": "Risk-based patch prioritization tool that automatically prioritizes critical patches based on actual risk to your systems, dramatically reducing patch workload while maintaining complete security coverage.",
+                        "description": "Lists Reserved but Public CVE IDs: IDs still Reserved in the CVE List but already cited in a public advisory, with no published CVE Record. Reads 17 public advisory feeds every six hours, holds each ID a week before listing it, and publishes JSON and CSV.",
                         "author": { "@type": "Person", "name": "Jerry Gamblin", "@id": "https://rogolabs.net/#jerry" },
-                        "codeRepository": "https://github.com/jgamblin/patchthisapp"
+                        "codeRepository": "https://github.com/RogoLabs/RBP"
                     }
                 },
                 {
@@ -530,18 +530,32 @@
                     "position": 3,
                     "item": {
                         "@type": "SoftwareApplication",
-                        "name": "VulnRadar",
-                        "url": "https://github.com/RogoLabs/VulnRadar",
+                        "name": "CVE Updates",
+                        "url": "https://rogolabs.github.io/CVE-Updates/",
                         "applicationCategory": "SecurityApplication",
                         "operatingSystem": "Web",
-                        "description": "GitHub-native CVE monitoring that matches your stack via a watchlist and produces a clean Markdown dashboard and issues. Runs on GitHub Actions with KEV, EPSS, NVD, and PatchThis enrichment plus optional chat notifications.",
+                        "description": "Automated analysis of 300K+ CVE records revealing update frequencies, historical trends, and the most actively maintained vulnerabilities. Updated every 4 hours with interactive visualizations and comprehensive statistics.",
                         "author": { "@type": "Person", "name": "Jerry Gamblin", "@id": "https://rogolabs.net/#jerry" },
-                        "codeRepository": "https://github.com/RogoLabs/VulnRadar"
+                        "codeRepository": "https://github.com/RogoLabs/CVE-Updates"
                     }
                 },
                 {
                     "@type": "ListItem",
                     "position": 4,
+                    "item": {
+                        "@type": "SoftwareApplication",
+                        "name": "CVE Floodline",
+                        "url": "https://cvefloodline.org",
+                        "applicationCategory": "SecurityApplication",
+                        "operatingSystem": "Web",
+                        "description": "Vulnerability weather for the AI era. Tracks daily CVE disclosure rates and projected annual volume, then uses EPSS scoring and CISA KEV confirmation to measure what share of the surge is genuinely dangerous versus inflated disclosure numbers.",
+                        "author": { "@type": "Person", "name": "Jerry Gamblin", "@id": "https://rogolabs.net/#jerry" },
+                        "codeRepository": "https://github.com/RogoLabs/cvefloodline.org"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 5,
                     "item": {
                         "@type": "SoftwareApplication",
                         "name": "CVEforecast",
@@ -555,7 +569,7 @@
                 },
                 {
                     "@type": "ListItem",
-                    "position": 5,
+                    "position": 6,
                     "item": {
                         "@type": "SoftwareApplication",
                         "name": "CNA Scorecard",
@@ -565,20 +579,6 @@
                         "description": "Data-driven quality ratings for every CVE Numbering Authority, enabling security teams to focus on reliable vulnerability intelligence and avoid inconsistent, low-quality reports.",
                         "author": { "@type": "Person", "name": "Jerry Gamblin", "@id": "https://rogolabs.net/#jerry" },
                         "codeRepository": "https://github.com/jgamblin/CNAScoreCard"
-                    }
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 6,
-                    "item": {
-                        "@type": "SoftwareApplication",
-                        "name": "CVE Updates",
-                        "url": "https://rogolabs.github.io/CVE-Updates/",
-                        "applicationCategory": "SecurityApplication",
-                        "operatingSystem": "Web",
-                        "description": "Automated analysis of 300K+ CVE records revealing update frequencies, historical trends, and the most actively maintained vulnerabilities. Updated every 4 hours with interactive visualizations and comprehensive statistics.",
-                        "author": { "@type": "Person", "name": "Jerry Gamblin", "@id": "https://rogolabs.net/#jerry" },
-                        "codeRepository": "https://github.com/RogoLabs/CVE-Updates"
                     }
                 },
                 {
@@ -614,13 +614,27 @@
                     "position": 9,
                     "item": {
                         "@type": "SoftwareApplication",
-                        "name": "CVE Floodline",
-                        "url": "https://cvefloodline.org",
+                        "name": "PatchThis.app",
+                        "url": "https://patchthis.app",
                         "applicationCategory": "SecurityApplication",
                         "operatingSystem": "Web",
-                        "description": "Vulnerability weather for the AI era. Tracks daily CVE disclosure rates and projected annual volume, then uses EPSS scoring and CISA KEV confirmation to measure what share of the surge is genuinely dangerous versus inflated disclosure numbers.",
+                        "description": "Risk-based patch prioritization tool that automatically prioritizes critical patches based on actual risk to your systems, dramatically reducing patch workload while maintaining complete security coverage.",
                         "author": { "@type": "Person", "name": "Jerry Gamblin", "@id": "https://rogolabs.net/#jerry" },
-                        "codeRepository": "https://github.com/RogoLabs/cvefloodline.org"
+                        "codeRepository": "https://github.com/jgamblin/patchthisapp"
+                    }
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 10,
+                    "item": {
+                        "@type": "SoftwareApplication",
+                        "name": "VulnRadar",
+                        "url": "https://github.com/RogoLabs/VulnRadar",
+                        "applicationCategory": "SecurityApplication",
+                        "operatingSystem": "Web",
+                        "description": "GitHub-native CVE monitoring that matches your stack via a watchlist and produces a clean Markdown dashboard and issues. Runs on GitHub Actions with KEV, EPSS, NVD, and PatchThis enrichment plus optional chat notifications.",
+                        "author": { "@type": "Person", "name": "Jerry Gamblin", "@id": "https://rogolabs.net/#jerry" },
+                        "codeRepository": "https://github.com/RogoLabs/VulnRadar"
                     }
                 }
             ]
@@ -695,96 +709,142 @@
                 <h2 class="section-title" id="toolkit-heading">The RogoLabs Toolkit</h2>
                 <p class="section-sub">One mission — make vulnerability intelligence actionable.</p>
 
-                <div class="toolkit-grid">
+                <div class="toolkit">
 
-                    <div class="tool-card">
-                        <div class="tool-name">CVE.ICU</div>
-                        <div class="tool-desc">Real-time CVE visualization dashboard updated every 4 hours from the NVD, with interactive charts revealing vulnerability patterns and trends.</div>
-                        <span class="tool-tag">Dashboard</span>
-                        <div class="tool-links">
-                            <a href="https://cve.icu" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
-                            <a href="https://github.com/jgamblin/cve.icu" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
+                    <div class="tool-group">
+                        <div class="tool-group-head">
+                            <h3 class="tool-group-title">The CVE List</h3>
+                            <p class="tool-group-sub">What is in it, what is missing, and what is coming.</p>
                         </div>
+                        <ul class="tool-list">
+                            <li class="tool-row">
+                                <div class="tool-head">
+                                    <h4 class="tool-name">CVE.ICU</h4>
+                                    <span class="tool-tag">Dashboard</span>
+                                </div>
+                                <p class="tool-desc">Real-time CVE visualization dashboard updated every 4 hours from the NVD, with interactive charts revealing vulnerability patterns and trends.</p>
+                                <div class="tool-links">
+                                    <a href="https://cve.icu" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
+                                    <a href="https://github.com/jgamblin/cve.icu" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
+                                </div>
+                            </li>
+                            <li class="tool-row">
+                                <div class="tool-head">
+                                    <h4 class="tool-name">RBP Tracker</h4>
+                                    <span class="tool-tag">Monitoring</span>
+                                </div>
+                                <p class="tool-desc">Lists Reserved but Public CVE IDs: cited in a public advisory, still Reserved, no CVE Record yet. Reads 17 advisory feeds every six hours and publishes JSON and CSV.</p>
+                                <div class="tool-links">
+                                    <a href="https://rbptracker.org" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
+                                    <a href="https://github.com/RogoLabs/RBP" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
+                                </div>
+                            </li>
+                            <li class="tool-row">
+                                <div class="tool-head">
+                                    <h4 class="tool-name">CVE Updates</h4>
+                                    <span class="tool-tag">Analytics</span>
+                                </div>
+                                <p class="tool-desc">Automated analysis of 300K+ CVE records revealing update frequencies, historical trends, and the most actively maintained vulnerabilities. Updated every 4 hours.</p>
+                                <div class="tool-links">
+                                    <a href="https://rogolabs.github.io/CVE-Updates/" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
+                                    <a href="https://github.com/RogoLabs/CVE-Updates" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
+                                </div>
+                            </li>
+                            <li class="tool-row">
+                                <div class="tool-head">
+                                    <h4 class="tool-name">CVE Floodline</h4>
+                                    <span class="tool-tag">Trends</span>
+                                </div>
+                                <p class="tool-desc">Vulnerability weather for the AI era. Tracks daily CVE disclosure rates and uses EPSS and CISA KEV to separate raw volume spikes from genuinely dangerous vulnerabilities.</p>
+                                <div class="tool-links">
+                                    <a href="https://cvefloodline.org" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
+                                    <a href="https://github.com/RogoLabs/cvefloodline.org" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
+                                </div>
+                            </li>
+                            <li class="tool-row">
+                                <div class="tool-head">
+                                    <h4 class="tool-name">CVEforecast</h4>
+                                    <span class="tool-tag">Predictive</span>
+                                </div>
+                                <p class="tool-desc">ML-powered CVE volume forecasting using an ensemble of statistical, machine learning, and deep learning models to predict what's coming next.</p>
+                                <div class="tool-links">
+                                    <a href="https://cveforecast.org" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
+                                    <a href="https://github.com/rogolabs/CVEforecast" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="tool-card">
-                        <div class="tool-name">PatchThis.app</div>
-                        <div class="tool-desc">Risk-based patch prioritization that ranks patches by actual exploitability and exposure, not just CVSS scores.</div>
-                        <span class="tool-tag">Prioritization</span>
-                        <div class="tool-links">
-                            <a href="https://patchthis.app" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
-                            <a href="https://github.com/jgamblin/patchthisapp" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
+                    <div class="tool-group">
+                        <div class="tool-group-head">
+                            <h3 class="tool-group-title">CNAs and the Program</h3>
+                            <p class="tool-group-sub">Who publishes CVE records, how well, and who enriches them.</p>
                         </div>
+                        <ul class="tool-list">
+                            <li class="tool-row">
+                                <div class="tool-head">
+                                    <h4 class="tool-name">CNA Scorecard</h4>
+                                    <span class="tool-tag">Quality</span>
+                                </div>
+                                <p class="tool-desc">Data-driven quality ratings for all 512 CVE Numbering Authorities, based on completeness, accuracy, and timeliness of their CVE records.</p>
+                                <div class="tool-links">
+                                    <a href="https://cnascorecard.org" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
+                                    <a href="https://github.com/jgamblin/CNAScoreCard" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
+                                </div>
+                            </li>
+                            <li class="tool-row">
+                                <div class="tool-head">
+                                    <h4 class="tool-name">CNAPulse</h4>
+                                    <span class="tool-tag">Monitoring</span>
+                                </div>
+                                <p class="tool-desc">Monitors all 512 CNAs, tracking publishing activity and comparing 30-day output against 12-month baselines. Updated every 3 hours.</p>
+                                <div class="tool-links">
+                                    <a href="https://cnapulse.org" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
+                                    <a href="https://github.com/RogoLabs/CNAPulse" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
+                                </div>
+                            </li>
+                            <li class="tool-row">
+                                <div class="tool-head">
+                                    <h4 class="tool-name">SADP Tracker</h4>
+                                    <span class="tool-tag">Monitoring</span>
+                                </div>
+                                <p class="tool-desc">Tracks Supplier ADP enrichment activity in CVE records with participation stats, data coverage metrics, and latest enrichment updates from the CVE Supplier ADP Pilot.</p>
+                                <div class="tool-links">
+                                    <a href="https://rogolabs.github.io/SADP-Tracker/index.html" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
+                                    <a href="https://github.com/RogoLabs/SADP-Tracker" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="tool-card">
-                        <div class="tool-name">CVEforecast</div>
-                        <div class="tool-desc">ML-powered CVE volume forecasting using an ensemble of statistical, machine learning, and deep learning models to predict what's coming next.</div>
-                        <span class="tool-tag">Predictive</span>
-                        <div class="tool-links">
-                            <a href="https://cveforecast.org" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
-                            <a href="https://github.com/rogolabs/CVEforecast" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
+                    <div class="tool-group">
+                        <div class="tool-group-head">
+                            <h3 class="tool-group-title">For Defenders</h3>
+                            <p class="tool-group-sub">What to patch first and what to watch in your own stack.</p>
                         </div>
-                    </div>
-
-                    <div class="tool-card">
-                        <div class="tool-name">CVE Floodline</div>
-                        <div class="tool-desc">Vulnerability weather for the AI era. Tracks daily CVE disclosure rates and uses EPSS and CISA KEV to separate raw volume spikes from genuinely dangerous vulnerabilities.</div>
-                        <span class="tool-tag">Trends</span>
-                        <div class="tool-links">
-                            <a href="https://cvefloodline.org" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
-                            <a href="https://github.com/RogoLabs/cvefloodline.org" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
-                        </div>
-                    </div>
-
-                    <div class="tool-card">
-                        <div class="tool-name">CNA Scorecard</div>
-                        <div class="tool-desc">Data-driven quality ratings for all 512 CVE Numbering Authorities, based on completeness, accuracy, and timeliness of their CVE records.</div>
-                        <span class="tool-tag">Quality</span>
-                        <div class="tool-links">
-                            <a href="https://cnascorecard.org" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
-                            <a href="https://github.com/jgamblin/CNAScoreCard" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
-                        </div>
-                    </div>
-
-                    <div class="tool-card">
-                        <div class="tool-name">CNAPulse</div>
-                        <div class="tool-desc">Monitors all 512 CNAs, tracking publishing activity and comparing 30-day output against 12-month baselines. Updated every 3 hours.</div>
-                        <span class="tool-tag">Monitoring</span>
-                        <div class="tool-links">
-                            <a href="https://cnapulse.org" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
-                            <a href="https://github.com/RogoLabs/CNAPulse" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
-                        </div>
-                    </div>
-
-                    <div class="tool-card">
-                        <div class="tool-name">SADP Tracker</div>
-                        <div class="tool-desc">Tracks Supplier ADP enrichment activity in CVE records with participation stats, data coverage metrics, and latest enrichment updates from the CVE Supplier ADP Pilot.</div>
-                        <span class="tool-tag">Monitoring</span>
-                        <div class="tool-links">
-                            <a href="https://rogolabs.github.io/SADP-Tracker/index.html" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
-                            <a href="https://github.com/RogoLabs/SADP-Tracker" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
-                        </div>
-                    </div>
-
-                    <div class="tool-card">
-                        <div class="tool-name">VulnRadar</div>
-                        <div class="tool-desc">GitHub-native CVE monitoring for your stack. Matches CVEs against a watchlist, enriches with KEV, EPSS, NVD, and PatchThis, and posts issues. Runs on GitHub Actions.</div>
-                        <span class="tool-tag">GitHub Action</span>
-                        <div class="tool-links">
-                            <a href="https://github.com/RogoLabs/VulnRadar" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
-                            <a href="https://github.com/RogoLabs/VulnRadar" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
-                        </div>
-                    </div>
-
-                    <div class="tool-card">
-                        <div class="tool-name">CVE Updates</div>
-                        <div class="tool-desc">Automated analysis of 300K+ CVE records revealing update frequencies, historical trends, and the most actively maintained vulnerabilities. Updated every 4 hours.</div>
-                        <span class="tool-tag">Analytics</span>
-                        <div class="tool-links">
-                            <a href="https://rogolabs.github.io/CVE-Updates/" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
-                            <a href="https://github.com/RogoLabs/CVE-Updates" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
-                        </div>
+                        <ul class="tool-list">
+                            <li class="tool-row">
+                                <div class="tool-head">
+                                    <h4 class="tool-name">PatchThis.app</h4>
+                                    <span class="tool-tag">Prioritization</span>
+                                </div>
+                                <p class="tool-desc">Risk-based patch prioritization that ranks patches by actual exploitability and exposure, not just CVSS scores.</p>
+                                <div class="tool-links">
+                                    <a href="https://patchthis.app" target="_blank" rel="noopener noreferrer" class="tool-link">Visit →</a>
+                                    <a href="https://github.com/jgamblin/patchthisapp" target="_blank" rel="noopener noreferrer" class="tool-link-gh">GitHub</a>
+                                </div>
+                            </li>
+                            <li class="tool-row">
+                                <div class="tool-head">
+                                    <h4 class="tool-name">VulnRadar</h4>
+                                    <span class="tool-tag">GitHub Action</span>
+                                </div>
+                                <p class="tool-desc">GitHub-native CVE monitoring for your stack. Matches CVEs against a watchlist, enriches with KEV, EPSS, NVD, and PatchThis, and posts issues. Runs on GitHub Actions.</p>
+                                <div class="tool-links">
+                                    <a href="https://github.com/RogoLabs/VulnRadar" target="_blank" rel="noopener noreferrer" class="tool-link">GitHub →</a>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
 
                 </div>
