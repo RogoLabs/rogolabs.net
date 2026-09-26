@@ -6,13 +6,28 @@ A professional portfolio and project showcase for Jerry Gamblin, featuring cyber
 
 ```
 .
-├── Web/                    # Web root directory (note capital 'W')
-│   ├── index.html          # Main HTML file
-│   └── README.md           # Web directory documentation
-├── .github/workflows/      # GitHub Actions workflow
-│   └── deploy.yml          # Deployment configuration
-└── README.md               # This file
+├── Web/                    # Web root, deployed to GitHub Pages (note capital 'W')
+│   ├── index.html          # The whole site: about, toolkit, talks, JSON-LD structured data
+│   ├── styles.css
+│   ├── script.js
+│   ├── Talks/              # Slide decks (PDF) linked from the Talks section
+│   ├── icons/              # Favicons and app icons
+│   ├── sitemap.xml, robots.txt, manifest.json, 404.html
+├── .github/workflows/
+│   ├── deploy.yml          # Deploys Web/ to GitHub Pages on push to main
+│   ├── link-check.yml      # Weekly lychee link check (reports only, does not fail)
+│   └── lighthouse.yml      # Lighthouse audit on pull requests
+├── CNAME
+└── README.md
 ```
+
+## Adding a Talk
+
+1. Put the slide PDF in `Web/Talks/` using a dashed filename with no spaces (e.g. `CVE-Panopticon.pdf`).
+2. Add a `talk-item` at the top of `#talks-timeline` in `Web/index.html`, newest first.
+3. Add a matching `Event` entry to the JSON-LD `@graph` near the top of `Web/index.html`.
+
+The talks list collapses to the five most recent automatically; no script changes are needed.
 
 ## Local Development
 
